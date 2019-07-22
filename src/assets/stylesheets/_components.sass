@@ -1,0 +1,147 @@
+@import '_variables'
+
+/* BUTTONS */
+
+.btn
+	text-transform: uppercase
+	cursor: pointer
+	height: 48px
+	line-height: 48px
+	text-align: center
+	text-decoration: none
+	user-select: none
+	outline: none
+	font-size: 14px
+	border-radius: 24px
+	border: none
+	min-width: 150px
+	padding: 0 15px
+	transition-duration: .4s
+	font-weight: 100
+
+	&.black-btn
+		background-color: $black
+		color: $yellow
+
+		&:hover
+			background-color: $black-hover
+			box-shadow: 0px 0px 5px 0px $black
+
+	&.yellow-btn
+		background-color: $yellow
+		color: $black
+
+		&:hover
+			background-color: $yellow-hover
+			box-shadow: 0px 0px 5px 0px $yellow
+
+	&.danger-btn
+		background-color: $danger
+		color: $white
+
+		&:hover
+			background-color: $danger-hover
+			box-shadow: 0px 0px 5px 0px $danger;
+
+	&.success-btn
+		background-color: $success
+		color: $white
+
+		&:hover
+			background-color: $success-hover
+			box-shadow: 0px 0px 5px 0px $success;
+
+.btn:disabled,
+.btn[disabled]
+	background-color: $lightgrey
+	color: $black
+	cursor: not-allowed
+
+	&:hover
+		background-color: $lightgrey
+		box-shadow: 0px 0px 5px 0px $lightgrey;
+		filter: brightness(.9)
+
+.btn_small
+	height: 30px
+	line-height: 30px
+	font-size: 12px
+	margin: auto 0
+
+/* INPUTS */
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+textarea
+	padding: 6px 12px
+	border-radius: 4px
+	border: 1px solid $lightgrey
+	outline: none
+	font-size: 12px
+	margin-bottom: 15px
+
+label
+	margin-bottom: 3px
+	font-size: 14px
+	cursor: pointer
+	user-select: none
+	color: $black-hover
+
+::-webkit-input-placeholder
+  color: $secondary-text
+
+::-moz-placeholder
+  color: $secondary-text
+
+input:disabled
+  background: aliceblue
+
+select
+	min-width: 170px
+	padding: 6px 12px
+	border-radius: 4px
+	border: 1px solid $lightgrey
+	outline: none
+	font-size: 12px
+	background-color: #fff
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+
+/* TABLES */
+
+table, th, td
+	border: none
+	text-align: left
+
+table
+	font-size: 14px
+	border-collapse: collapse
+	width: 100%
+
+th, td
+	padding: 12px 8px
+
+th
+	background-color: rgba(148, 148, 148, 0.1)
+	user-select: none
+
+tbody
+	tr
+		box-shadow: 1px 1px 1px 0px rgba(148, 148, 148, 0.15)
+		cursor: pointer
+		&:hover
+			background-color: rgba(148, 148, 148, 0.05)
+
+	
+
+/* OTHER */
+
+.scrollable-container
+	width: 100%
+	height: 100%
+	overflow-y: scroll
+	padding-right: 17px
+	box-sizing: content-box

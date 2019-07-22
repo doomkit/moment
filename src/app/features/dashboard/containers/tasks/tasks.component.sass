@@ -1,0 +1,32 @@
+@import '~assets/stylesheets/_variables.sass'
+
+.content
+	width: calc(100% - 15px)
+	height: calc(100% - 30px)
+	padding: 15px
+
+table
+	margin-top: 15px
+
+td
+	max-width: 280px
+
+.state
+	padding: 5px 10px
+	border-radius: 4px
+	text-align: center
+	width: 100px
+
+	&_new
+		background-color: $link-blue
+		color: white
+
+	&_processing
+		background-color: $lightgrey
+
+	&_complete
+		background-color: $yellow
+
+	&_confirmed
+		background-color: $success
+		color: white

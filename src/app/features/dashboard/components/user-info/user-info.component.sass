@@ -1,0 +1,39 @@
+@import '~assets/stylesheets/_variables'
+
+.user-info
+	background-color: $light-background
+	padding: 15px 10px
+	width: calc(100% - 20px)
+	display: flex
+	flex-direction: column
+	box-shadow: 0px 0.5px 1px 0px rgba(148, 148, 148, 0.2)
+
+	*
+		align-self: center
+
+	h2
+		margin-top: 10px
+		font-size: 22px
+	
+	p
+		text-transform: lowercase
+
+.avatar
+	width: 90px
+	height: 90px
+	border-radius: 50%
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+
+	&_admin
+		background-image: url('../../../../../assets/img/admin.png')
+
+	&_dispatcher
+		background-image: url('../../../../../assets/img/dispatcher.png')
+
+	&_magistrat
+		background-image: url('../../../../../assets/img/magistrat.png')
+
+	&_worker
+		background-image: url('../../../../../assets/img/worker.png')
