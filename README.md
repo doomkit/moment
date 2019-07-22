@@ -1,7 +1,7 @@
 # Moment
 
-Prague Itenerary prototype
-Semester project for Information Systems (INS)
+Prague Itenerary prototype  
+Semester project for Information Systems (INS), CVUT Prague
 
 ![](screen.png)
 
