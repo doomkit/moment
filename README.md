@@ -3,6 +3,10 @@
 Prague Itenerary prototype
 Semester project for Information Systems (INS)
 
+![](screen.png)
+
+System allows you to manage itinerary issues across the city.
+
 ## Development
 
 Install globaly Json-server  
@@ -27,3 +31,11 @@ You can manage Mapbox tokens [here](https://account.mapbox.com/auth/signin/?rout
 *Registrations required*
 
 Open your browser on `http://localhost:4200/`.
+
+Application requires login, you can find login and password in *./data/db.json*  in *users* collection.  
+For example you can login as admn with:
+
+```
+email: john.doe@gmail.com
+password: 1qaz2wsx
+```
