@@ -10,5 +10,8 @@ export const environment = {
 	},
 	api: {
 		base_url: ''
+	},
+	defaults: {
+		language: 'en'
 	}
 };
