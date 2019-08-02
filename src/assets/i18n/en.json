@@ -1,3 +1,19 @@
 {
+	"meta": {
+		"title": "Moment - Itinerary Prague"
+	},
+	"dashboard": {
+		"navbar": {
+			"title": "Itinerary",
+			"city": "Prague"
+		}
+	},
+	"shared": {
+		"actions": {
+			"new-issue": "New Issue",
+			"save": "Save",
+			"cancel": "Cancel"
+		}
+	},
 	"app": "Itenerary"
 }

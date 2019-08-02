@@ -7,7 +7,9 @@ import { TranslationService } from '@core/services';
 export class TranslatePipe implements PipeTransform {
 	constructor(private translate: TranslationService) {}
 
-	transform(key: any): any {
-		return this.translate.data[key] || key;
+	transform(key: string): string {
+		let path = key.split('.');
+		let value = path.reduce((o, n) => o[n], this.translate.data);
+		return value || key;
 	}
 }

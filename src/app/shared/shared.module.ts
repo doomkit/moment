@@ -19,6 +19,6 @@ import { DropdownListComponent } from './components/dropdown/dropdown-list/dropd
 		ClickOutsideDirective,
 		TranslatePipe
 	],
-	exports: [DropdownComponent, ClickOutsideDirective]
+	exports: [DropdownComponent, ClickOutsideDirective, TranslatePipe]
 })
 export class SharedModule {}
