@@ -1,0 +1,19 @@
+{
+	"meta": {
+		"title": "Moment - Itinerář Praha"
+	},
+	"dashboard": {
+		"navbar": {
+			"title": "Itinerář",
+			"city": "Praha"
+		}
+	},
+	"shared": {
+		"actions": {
+			"new-issue": "Nová závada",
+			"save": "Vytvořit",
+			"cancel": "Zrušit"
+		}
+	},
+	"app": "Itinerář"
+}

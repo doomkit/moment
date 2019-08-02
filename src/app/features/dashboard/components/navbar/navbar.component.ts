@@ -3,29 +3,38 @@ import { Issue } from '../../../../core/models/issue';
 import { ModalType } from '../../../../core/enums/modal-type';
 
 @Component({
-  selector: 'app-navbar',
-  template: `
+	selector: 'app-navbar',
+	template: `
 		<div class="navbar">
 			<div class="navbar-content">
-				<h1 routerLink="/dashboard">Itinerář <span class="accent-text">Praha</span></h1>
-				<button class="btn yellow-btn btn_small"
-					(click)="openNewIssueModal($event)">
-					Nová závada <i class="fas fa-bug"></i>
+				<h1 routerLink="/dashboard">
+					{{ 'dashboard.navbar.title' | translate }}
+					<span class="accent-text">
+						{{ 'dashboard.navbar.city' | translate }}
+					</span>
+				</h1>
+				<button
+					class="btn yellow-btn btn_small"
+					(click)="openNewIssueModal($event)"
+				>
+					{{ 'shared.actions.new-issue' | translate }}
+					<i class="fas fa-bug"></i>
 				</button>
 			</div>
 		</div>
-		<app-modal *ngIf="showNewIssueModal"
+		<app-modal
+			*ngIf="showNewIssueModal"
 			[innerComponentType]="createMoadlType"
-			(afterClose)="onModalClose($event)">
+			(afterClose)="onModalClose($event)"
+		>
 		</app-modal>
-  `,
-  styleUrls: ['./navbar.component.sass']
+	`,
+	styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent {
-
 	@Output() createIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
 	showNewIssueModal: boolean;
-	
+
 	createMoadlType: ModalType;
 
 	constructor() {
@@ -37,10 +46,11 @@ export class NavbarComponent {
 		this.showNewIssueModal = true;
 		event.stopPropagation();
 	}
-	
+
 	onModalClose(event: Issue): void {
 		this.showNewIssueModal = false;
-		if (event) {	// If modal was not canceled
+		if (event) {
+			// If modal was not canceled
 			this.createIssue.emit(event);
 		}
 	}
