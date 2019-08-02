@@ -81,12 +81,12 @@ import { IssueState } from '../../../../core/enums/issue-state';
 })
 export class WorkerViewComponent implements OnInit {
 
-  @ViewChild('close_btn') closeButton: ElementRef;
-	@ViewChild('update_btn') submitButton: ElementRef;
-	@ViewChild('state_select') stateSelect: ElementRef;
-	@ViewChild('master_select') masterSelect: ElementRef;
+  @ViewChild('close_btn', { static: true }) closeButton: ElementRef;
+	@ViewChild('update_btn', { static: true }) submitButton: ElementRef;
+	@ViewChild('state_select', { static: true }) stateSelect: ElementRef;
+	@ViewChild('master_select', { static: true }) masterSelect: ElementRef;
 	@Output('close') close: EventEmitter<any> = new EventEmitter<any>();
-	@ViewChild(MapboxComponent) mapbox: MapboxComponent;
+	@ViewChild(MapboxComponent, { static: true }) mapbox: MapboxComponent;
 
 	masters: Master[];
 	states: string[];

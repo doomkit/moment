@@ -68,10 +68,10 @@ import { AuthService } from '../../../../auth/auth.service';
 })
 export class CreateIssueComponent implements OnInit, AfterViewInit {
 
-	@ViewChild('close_btn') closeButton: ElementRef;
-	@ViewChild('create_btn') submitButton: ElementRef;
+	@ViewChild('close_btn', { static: true }) closeButton: ElementRef;
+	@ViewChild('create_btn', { static: true }) submitButton: ElementRef;
 	@Output('close') close: EventEmitter<any> = new EventEmitter<any>();
-	@ViewChild(MapboxComponent) mapbox: MapboxComponent;
+	@ViewChild(MapboxComponent, { static: true }) mapbox: MapboxComponent;
 
 	masters: Master[];
 	address: string;

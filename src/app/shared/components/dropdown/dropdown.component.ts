@@ -22,7 +22,7 @@ import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
 })
 export class DropdownComponent {
 
-	@ViewChild(DropdownListComponent) dropdownList: DropdownListComponent;
+	@ViewChild(DropdownListComponent, { static: false }) dropdownList: DropdownListComponent;
 	@Output() optionChange: EventEmitter<string> = new EventEmitter<string>();
 	@Input() text: string;
 	@Input() sortingOptions: string[];

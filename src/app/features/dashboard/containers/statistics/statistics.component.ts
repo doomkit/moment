@@ -35,9 +35,9 @@ import { LineChartComponent } from '../../components/charts/line-chart/line-char
 })
 export class StatisticsComponent implements OnInit {
 
-	@ViewChild(PieChartComponent) pieChart: PieChartComponent;
-	@ViewChild(BarChartComponent) barChart: BarChartComponent;
-	@ViewChild(LineChartComponent) lineChart: LineChartComponent;
+	@ViewChild(PieChartComponent, { static: true }) pieChart: PieChartComponent;
+	@ViewChild(BarChartComponent, { static: true }) barChart: BarChartComponent;
+	@ViewChild(LineChartComponent, { static: true }) lineChart: LineChartComponent;
 	allIssues: Issue[];
 	legends: any[];
 	archivedIssues: Issue[];
