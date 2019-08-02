@@ -58,9 +58,9 @@ import { IssueService } from '../../core/services/issue.service';
 })
 export class ReportComponent implements AfterViewInit {
 
-	@ViewChild(MapboxComponent) mapbox: MapboxComponent;
-	@ViewChild('report') report: ElementRef;
-	@ViewChild('next') next: ElementRef;
+	@ViewChild(MapboxComponent, { static: true }) mapbox: MapboxComponent;
+	@ViewChild('report', { static: true }) report: ElementRef;
+	@ViewChild('next', { static: true }) next: ElementRef;
 
 	address: string = '';
 	coordinates: Location= {

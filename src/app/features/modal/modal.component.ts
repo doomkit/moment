@@ -21,8 +21,8 @@ export class ModalComponent implements OnInit, AfterContentInit {
 
 	@Input() innerComponentType: ModalType;
 	@Input() issue: Issue;
-	@ViewChild(ModalDirective) modalHost: ModalDirective;
-	@ViewChild('container') container: ElementRef;
+	@ViewChild(ModalDirective, { static: true }) modalHost: ModalDirective;
+	@ViewChild('container', { static: true }) container: ElementRef;
 	@Output() afterClose: EventEmitter<any> = new EventEmitter<any>();
 
 	innerComponent: any;

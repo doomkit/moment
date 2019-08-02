@@ -22,7 +22,7 @@ import { IssueState } from '../../../../core/enums/issue-state';
 })
 export class MapComponent implements OnInit {
 
-	@ViewChild(MapboxComponent) mapbox: MapboxComponent;
+	@ViewChild(MapboxComponent, { static: true }) mapbox: MapboxComponent;
 	allIssues: Issue[];
 	counter: number;
 
