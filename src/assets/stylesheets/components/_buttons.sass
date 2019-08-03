@@ -1,0 +1,65 @@
+.btn
+	text-transform: uppercase
+	cursor: pointer
+	height: 48px
+	line-height: 48px
+	text-align: center
+	text-decoration: none
+	user-select: none
+	outline: none
+	font-size: 14px
+	border-radius: 24px
+	border: none
+	min-width: 150px
+	padding: 0 15px
+	transition-duration: .4s
+	font-weight: 100
+
+	&.black-btn
+		background-color: $black
+		color: $yellow
+
+		&:hover
+			background-color: $black-hover
+			box-shadow: 0px 0px 5px 0px $black
+
+	&.yellow-btn
+		background-color: $yellow
+		color: $black
+
+		&:hover
+			background-color: $yellow-hover
+			box-shadow: 0px 0px 5px 0px $yellow
+
+	&.danger-btn
+		background-color: $danger
+		color: $white
+
+		&:hover
+			background-color: $danger-hover
+			box-shadow: 0px 0px 5px 0px $danger;
+
+	&.success-btn
+		background-color: $success
+		color: $white
+
+		&:hover
+			background-color: $success-hover
+			box-shadow: 0px 0px 5px 0px $success;
+
+.btn:disabled,
+.btn[disabled]
+	background-color: $lightgrey
+	color: $black
+	cursor: not-allowed
+
+	&:hover
+		background-color: $lightgrey
+		box-shadow: 0px 0px 5px 0px $lightgrey;
+		filter: brightness(.9)
+
+.btn_small
+	height: 30px
+	line-height: 30px
+	font-size: 12px
+	margin: auto 0
