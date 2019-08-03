@@ -1,6 +1,16 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslationService } from '@core/services';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import {
+	TranslationService,
+	IssueService,
+	MapService,
+	UserService,
+	MasterService
+} from '@core/services';
+
 import { environment } from '@env/environment';
 
 export function setupTranslateFactory(service: TranslationService): Function {
@@ -11,9 +21,9 @@ export function setupTranslateFactory(service: TranslationService): Function {
 }
 
 @NgModule({
-	imports: [CommonModule],
+	imports: [CommonModule, BrowserAnimationsModule, HttpClientModule],
 	declarations: [],
-	exports: [],
+	exports: [BrowserAnimationsModule, HttpClientModule],
 	providers: [
 		TranslationService,
 		{
@@ -21,7 +31,11 @@ export function setupTranslateFactory(service: TranslationService): Function {
 			useFactory: setupTranslateFactory,
 			deps: [TranslationService],
 			multi: true
-		}
+		},
+		IssueService,
+		MasterService,
+		MapService,
+		UserService
 	]
 })
 export class CoreModule {}

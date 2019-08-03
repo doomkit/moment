@@ -5,18 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 
-// Services
-import { IssueService } from '../core/services/issue.service';
-import { MasterService } from '../core/services/master.service';
-import { MapService } from '../core/services/map.service';
-import { AuthService } from '../auth/auth.service';
-import { UserService } from '../core/services/user.service';
-
 // Smart containers
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './authorization/login/login.component';
+import { NotFoundComponent } from './static/not-found/not-found.component';
+import { RegistrationComponent } from './authorization/registration/registration.component';
 import { ProfileComponent } from './dashboard/containers/profile/profile.component';
 import { ReportComponent } from './report/report.component';
 
@@ -29,31 +21,30 @@ import { StatisticsComponent } from './dashboard/containers/statistics/statistic
 import { TasksComponent } from './dashboard/containers/tasks/tasks.component';
 import { MapComponent } from './dashboard/containers/map/map.component';
 import { PieChartComponent } from './dashboard/components/charts/pie-chart/pie-chart.component';
-import { ModalComponent } from '../features/modal/modal.component';
-import { CreateIssueComponent } from '../features/modal/modal-views/create-issue/create-issue.component';
-import { UpdateIssueComponent } from './modal/modal-views/update-issue/update-issue.component';
+import { ModalComponent } from '../core/modal/modal.component';
+import { CreateIssueComponent } from '../core/modal/modal-views/create-issue/create-issue.component';
+import { UpdateIssueComponent } from '../core/modal/modal-views/update-issue/update-issue.component';
 import { LabelsComponent } from './dashboard/components/charts/labels/labels.component';
 import { BarChartComponent } from './dashboard/components/charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './dashboard/components/charts/line-chart/line-chart.component';
 import { UserInfoComponent } from './dashboard/components/user-info/user-info.component';
 import { AutomatisationComponent } from './dashboard/containers/automatisation/automatisation.component';
 import { AutoreportComponent } from './dashboard/components/autoreport/autoreport.component';
-import { WorkerViewComponent } from './modal/modal-views/worker-view/worker-view.component';
+import { WorkerViewComponent } from '../core/modal/modal-views/worker-view/worker-view.component';
 
 // Directives
-import { ModalDirective } from '../features/modal/modal.directive';
+import { ModalDirective } from '../core/modal/modal.directive';
 
 @NgModule({
-  imports: [
+	imports: [
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
 		RouterModule,
 		SharedModule
-  ],
-  declarations: [
+	],
+	declarations: [
 		LoginComponent,
-		DashboardComponent,
 		NotFoundComponent,
 		RegistrationComponent,
 		MapboxComponent,
@@ -82,13 +73,6 @@ import { ModalDirective } from '../features/modal/modal.directive';
 		CreateIssueComponent,
 		UpdateIssueComponent,
 		WorkerViewComponent
-	],
-	providers: [
-		IssueService,
-		MasterService,
-		MapService,
-		AuthService,
-		UserService
 	]
 })
-export class FeaturesModule { }
+export class FeaturesModule {}
