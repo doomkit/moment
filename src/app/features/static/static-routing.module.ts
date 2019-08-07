@@ -11,14 +11,10 @@ const routes: Routes = [
 		component: StaticComponent,
 		children: [
 			{
-				path: '404',
+				path: '', // TODO: use '404' path
 				component: NotFoundComponent
-			},
-			{
-				path: '**',
-				redirectTo: '404',
-				pathMatch: 'full'
 			}
+			// TODO: redirect ** to 404 page
 		]
 	}
 ];

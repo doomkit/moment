@@ -15,5 +15,10 @@
 			"cancel": "Cancel"
 		}
 	},
+	"static": {
+		"not-found": {
+			"page": "Page not found"
+		}
+	},
 	"app": "Itenerary"
 }

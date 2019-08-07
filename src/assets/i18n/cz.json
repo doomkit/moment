@@ -15,5 +15,10 @@
 			"cancel": "Zrušit"
 		}
 	},
+	"static": {
+		"not-found": {
+			"page": "Stránka nenalezena"
+		}
+	},
 	"app": "Itinerář"
 }

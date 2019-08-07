@@ -1,19 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-static',
-  template: `
-   <p>
-  		static Works!
-   </p>
-  `,
-  styleUrls: ['./static.component.sass']
+	selector: 'app-static',
+	template: `
+		<div class="static-page">
+			<router-outlet></router-outlet>
+		</div>
+	`,
+	styleUrls: ['./static.component.sass']
 })
-export class StaticComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class StaticComponent {}
