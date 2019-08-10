@@ -22,13 +22,7 @@ import { UserRole } from '../../../../core/enums/user-role';
 			</ul>
 			<div class="sidebar-profile">
 				<div
-					class="sidebar-profile__avatar"
-					[ngClass]="{
-						'sidebar-profile__avatar_admin': user?.role === 0,
-						'sidebar-profile__avatar_dispatcher': user?.role === 1,
-						'sidebar-profile__avatar_worker': user?.role === 2,
-						'sidebar-profile__avatar_magistrat': user?.role === 3
-					}"
+					class="sidebar-profile__avatar sidebar-profile__avatar_admin"
 				></div>
 				<div class="sidebar-profile__info">
 					<a routerLink="profile" class="primary-text">{{ user?.name }}</a>

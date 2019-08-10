@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../../auth/auth.service';
 import { Router } from '@angular/router';
-import { UserRole } from '../../../core/enums/user-role';
 
 @Component({
 	selector: 'app-login',
@@ -41,10 +39,6 @@ import { UserRole } from '../../../core/enums/user-role';
 				Chybně zadané heslo nebo email.
 			</div>
 		</div>
-
-		<a routerLink="/report" class="btn yellow-btn btn_small create-issue__btn">
-			Vytvořit závadu
-		</a>
 	`,
 	styleUrls: ['./login.component.sass']
 })
