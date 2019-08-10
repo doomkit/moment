@@ -18,5 +18,8 @@ export const environment = {
 	},
 	defaults: {
 		language: 'en'
+	},
+	sessionVariables: {
+		userId: 'userId'
 	}
 };
