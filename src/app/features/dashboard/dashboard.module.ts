@@ -30,12 +30,14 @@ import {
 	imports: [CommonModule, SharedModule, DashboardRoutingModule],
 	declarations: [
 		DashboardComponent,
+		// Containers
 		OverviewComponent,
 		ProfileComponent,
 		TasksComponent,
 		StatisticsComponent,
 		MapComponent,
 		AutomatisationComponent,
+		// Components
 		AutoreportComponent,
 		BarChartComponent,
 		LabelsComponent,

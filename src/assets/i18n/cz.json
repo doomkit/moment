@@ -6,6 +6,15 @@
 		"navbar": {
 			"title": "Itinerář",
 			"city": "Praha"
+		},
+		"sidebar": {
+			"menu": {
+				"issues": "Nahlášené závady",
+				"tasks": "Moje úkoly",
+				"automatization": "Automatizace",
+				"reports": "Reporty",
+				"map": "Mapa"
+			}
 		}
 	},
 	"shared": {

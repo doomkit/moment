@@ -6,6 +6,15 @@
 		"navbar": {
 			"title": "Itinerary",
 			"city": "Prague"
+		},
+		"sidebar": {
+			"menu": {
+				"issues": "Known Issues",
+				"tasks": "My Tasks",
+				"automatization": "Automatisation",
+				"reports": "Statistics",
+				"map": "Issue Map"
+			}
 		}
 	},
 	"shared": {

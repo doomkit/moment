@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../../core/services/user.service';
-import { AuthService } from '../../../../auth/auth.service';
-import { User } from '../../../../core/models/user';
-import { UserRole } from '../../../../core/enums/user-role';
+import { Component, Input } from '@angular/core';
+import { User } from '@core/models/user';
 
 @Component({
 	selector: 'app-sidebar',
@@ -16,62 +13,52 @@ import { UserRole } from '../../../../core/enums/user-role';
 						routerLinkActive="sidebar-menu__item_active"
 						[routerLinkActiveOptions]="{ exact: true }"
 					>
-						{{ item.name }}
+						{{ item.name | translate }}
 					</li>
 				</ng-container>
 			</ul>
-			<div class="sidebar-profile">
-				<div
-					class="sidebar-profile__avatar sidebar-profile__avatar_admin"
-				></div>
+			<div
+				class="sidebar-profile"
+				routerLink="profile"
+				routerLinkActive="sidebar-profile_active"
+			>
+				<div class="sidebar-profile__avatar"></div>
 				<div class="sidebar-profile__info">
-					<a routerLink="profile" class="primary-text">{{ user?.name }}</a>
-					<span class="secondary-text">{{ getUserRole(user?.role) }}</span>
+					<a class="primary-text">{{ user?.name }}</a>
+					<span class="secondary-text">{{ getUserRole(user) }}</span>
 				</div>
 			</div>
 		</div>
 	`,
 	styleUrls: ['./sidebar.component.sass']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
+	@Input() user: User;
+
 	menuItems = [
 		{
 			link: '/dashboard',
-			name: 'Nahlášené závady'
+			name: 'dashboard.sidebar.menu.issues'
 		},
 		{
 			link: 'tasks',
-			name: 'Moje úkoly'
+			name: 'dashboard.sidebar.menu.tasks'
 		},
 		{
 			link: 'automatisation',
-			name: 'Automatizace'
+			name: 'dashboard.sidebar.menu.automatization'
 		},
 		{
 			link: 'statistics',
-			name: 'Reporty'
+			name: 'dashboard.sidebar.menu.reports'
 		},
 		{
 			link: 'map',
-			name: 'Mapa'
+			name: 'dashboard.sidebar.menu.map'
 		}
 	];
 
-	user: User;
-
-	constructor(private userService: UserService) {}
-
-	ngOnInit(): void {
-		let email = '';
-		this.userService
-			.getUsers()
-			.subscribe(
-				data => (this.user = data.filter(elem => elem.email === email)[0]),
-				err => console.error(err)
-			);
-	}
-
-	getUserRole(role) {
-		return UserRole[role];
+	getUserRole(user: User) {
+		return 'TODO'; // TODO: get role from ENUM
 	}
 }
