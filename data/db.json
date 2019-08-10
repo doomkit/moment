@@ -1,7 +1,7 @@
 {
 	"issues": [
 		{
-			"id": 1,
+			"id": 0,
 			"author": "John Doe",
 			"title": "Tram station",
 			"description": "Tram station is damaged by storm. The glass is broken.",
@@ -13,7 +13,7 @@
 			"archived": false
 		},
 		{
-			"id": 2,
+			"id": 1,
 			"author": "John Doe",
 			"title": "Paint rusty fence",
 			"description": "Need to paint rusty fence around the park with a silver color.",
@@ -25,7 +25,7 @@
 			"archived": true
 		},
 		{
-			"id": 3,
+			"id": 2,
 			"author": "John Doe",
 			"title": "Red bench",
 			"description": "Clean around.",
@@ -37,7 +37,7 @@
 			"archived": false
 		},
 		{
-			"id": 4,
+			"id": 3,
 			"author": "John Doe",
 			"title": "Glass shards",
 			"description": "Remove glass shards near the office building.",
@@ -49,7 +49,7 @@
 			"archived": false
 		},
 		{
-			"id": 5,
+			"id": 4,
 			"author": "John Doe",
 			"title": "Beer bottles",
 			"description": "Clean surrounding areas.",
@@ -63,7 +63,7 @@
 	],
 	"templates": [
 		{
-			"id": 1,
+			"id": 0,
 			"author": "",
 			"title": "[Auto] Svetlo #105",
 			"description": "Svetlo #105 (žiarovka) po zapojení nesveti",
@@ -75,7 +75,7 @@
 			"archived": false
 		},
 		{
-			"id": 2,
+			"id": 1,
 			"author": "",
 			"title": "[Auto] Svetlo #110",
 			"description": "Svetlo #110 (žiarovka) po zapojení nesveti",
@@ -87,7 +87,7 @@
 			"archived": false
 		},
 		{
-			"id": 3,
+			"id": 2,
 			"author": "",
 			"title": "[Auto] Svetlo #110",
 			"description": "Svetlo #94 (žiarovka) po zapojení nesveti.",
@@ -101,33 +101,34 @@
 	],
 	"masters": [
 		{
-			"id": 1,
+			"id": 0,
 			"name": "Tereza Macek",
 			"email": "tereza.macek@gmail.com"
 		},
 		{
-			"id": 2,
+			"id": 1,
 			"name": "Filip Sýkora",
 			"email": "filip.sykora@gmail.com"
 		},
 		{
-			"id": 3,
+			"id": 2,
 			"name": "Matěj Smolak",
 			"email": "matej.smolak@gmail.com"
 		},
 		{
-			"id": 4,
+			"id": 3,
 			"name": "František Dušek",
 			"email": "frantisek.dusek@gmail.com"
 		},
 		{
-			"id": 5,
+			"id": 4,
 			"name": "Dominika Svobodová",
 			"email": "dominika.svobodova@gmail.com"
 		}
 	],
 	"users": [
 		{
+			"id": 0,
 			"name": "John Doe",
 			"role": 0,
 			"email": "john.doe@gmail.com",
@@ -135,6 +136,7 @@
 			"phone": 79457248
 		},
 		{
+			"id": 1,
 			"name": "Tereza Macek",
 			"role": 2,
 			"email": "tereza.macek@gmail.com",
@@ -142,6 +144,7 @@
 			"phone": 79411659
 		},
 		{
+			"id": 2,
 			"name": "Filip Sýkora",
 			"role": 2,
 			"email": "filip.sykora@gmail.com",
@@ -149,6 +152,7 @@
 			"phone": 79363066
 		},
 		{
+			"id": 3,
 			"name": "Matěj Smolak",
 			"role": 2,
 			"email": "matej.smolak@gmail.com",
@@ -156,6 +160,7 @@
 			"phone": 79569572
 		},
 		{
+			"id": 4,
 			"name": "František Dušek",
 			"role": 2,
 			"email": "frantisek.dusek@gmail.com",
@@ -163,6 +168,7 @@
 			"phone": 79617070
 		},
 		{
+			"id": 5,
 			"name": "Dominika Svobodová",
 			"role": 2,
 			"email": "dominika.svobodova@gmail.com",
@@ -170,6 +176,7 @@
 			"phone": 79343529
 		},
 		{
+			"id": 6,
 			"name": "Taťána Skála",
 			"role": 1,
 			"email": "tatiana.skala@gmail.com",
