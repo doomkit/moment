@@ -22,12 +22,14 @@ import { ModalType } from '../../../../core/enums/modal-type';
 				</button>
 			</div>
 		</div>
+		<!--
 		<app-modal
 			*ngIf="showNewIssueModal"
 			[innerComponentType]="createMoadlType"
 			(afterClose)="onModalClose($event)"
 		>
-		</app-modal>
+    </app-modal>
+    -->
 	`,
 	styleUrls: ['./navbar.component.sass']
 })

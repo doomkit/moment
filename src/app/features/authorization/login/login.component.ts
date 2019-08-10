@@ -32,7 +32,9 @@ import { UserRole } from '../../../core/enums/user-role';
 				>
 					Přihlásit se
 				</button>
-				<a routerLink="/registration" routerLinkActive="active">Nemáte účet?</a>
+				<a routerLink="/authorization/create-account" routerLinkActive="active"
+					>Nemáte účet?</a
+				>
 			</form>
 
 			<div *ngIf="error" class="error">
@@ -54,25 +56,25 @@ export class LoginComponent {
 
 	error: boolean;
 
-	constructor(private authService: AuthService, private router: Router) {}
+	constructor(private router: Router) {}
 
 	authorize(): void {
-		this.authService
-			.logIn(this.loginForm.value.email, this.loginForm.value.password)
-			.subscribe(
-				response => (this.error = !response),
-				err => {
-					console.error(err);
-				},
-				() => {
-					if (this.authService.isLoggedIn) {
-						if (this.authService.checkPermissions() === UserRole.Technik) {
-							this.router.navigate(['/dashboard/tasks']);
-						} else {
-							this.router.navigate(['/dashboard']);
-						}
-					}
-				}
-			);
+		// this.authService
+		// 	.logIn(this.loginForm.value.email, this.loginForm.value.password)
+		// 	.subscribe(
+		// 		response => (this.error = !response),
+		// 		err => {
+		// 			console.error(err);
+		// 		},
+		// 		() => {
+		// 			if (this.authService.isLoggedIn) {
+		// 				if (this.authService.checkPermissions() === UserRole.Technik) {
+		// 					this.router.navigate(['/dashboard/tasks']);
+		// 				} else {
+		this.router.navigate(['/dashboard']);
+		// 				}
+		// 			}
+		// 		}
+		// 	);
 	}
 }

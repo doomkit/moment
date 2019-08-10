@@ -15,9 +15,16 @@ import {
 	AutomatisationComponent
 } from './containers';
 
-import { CreateIssueComponent } from '../../core/modal/modal-views/create-issue/create-issue.component';
-import { UpdateIssueComponent } from '../../core/modal/modal-views/update-issue/update-issue.component';
-import { WorkerViewComponent } from '../../core/modal/modal-views/worker-view/worker-view.component';
+import {
+	AutoreportComponent,
+	BarChartComponent,
+	LabelsComponent,
+	LineChartComponent,
+	PieChartComponent,
+	NavbarComponent,
+	SidebarComponent,
+	UserInfoComponent
+} from './components';
 
 @NgModule({
 	imports: [CommonModule, SharedModule, DashboardRoutingModule],
@@ -28,12 +35,15 @@ import { WorkerViewComponent } from '../../core/modal/modal-views/worker-view/wo
 		TasksComponent,
 		StatisticsComponent,
 		MapComponent,
-		AutomatisationComponent
-	],
-	entryComponents: [
-		CreateIssueComponent,
-		UpdateIssueComponent,
-		WorkerViewComponent
+		AutomatisationComponent,
+		AutoreportComponent,
+		BarChartComponent,
+		LabelsComponent,
+		LineChartComponent,
+		PieChartComponent,
+		NavbarComponent,
+		SidebarComponent,
+		UserInfoComponent
 	]
 })
 export class DashboardModule {}

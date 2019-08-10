@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { SharedModule } from '@shared/shared.module';
+
 import {
 	TranslationService,
 	IssueService,
@@ -10,6 +12,13 @@ import {
 	UserService,
 	MasterService
 } from '@core/services';
+
+import {
+	ModalComponent,
+	CreateIssueComponent,
+	UpdateIssueComponent,
+	WorkerViewComponent
+} from './modal';
 
 import { environment } from '@env/environment';
 
@@ -21,9 +30,19 @@ export function setupTranslateFactory(service: TranslationService): Function {
 }
 
 @NgModule({
-	imports: [CommonModule, BrowserAnimationsModule, HttpClientModule],
-	declarations: [],
-	exports: [BrowserAnimationsModule, HttpClientModule],
+	imports: [
+		CommonModule,
+		BrowserAnimationsModule,
+		HttpClientModule,
+		SharedModule
+	],
+	exports: [BrowserAnimationsModule, HttpClientModule, ModalComponent],
+	declarations: [
+		ModalComponent,
+		CreateIssueComponent,
+		UpdateIssueComponent,
+		WorkerViewComponent
+	],
 	providers: [
 		TranslationService,
 		{

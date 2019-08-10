@@ -9,15 +9,26 @@ import { RegistrationComponent } from './registration/registration.component';
 const routes: Routes = [
 	{
 		path: '',
+		redirectTo: 'sign-in',
+		pathMatch: 'full'
+	},
+	{
+		path: 'sign-in',
 		component: AuthorizationComponent,
 		children: [
 			{
-				path: 'sign-in',
+				path: '',
 				component: LoginComponent,
 				data: { animation: 'Login' }
-			},
+			}
+		]
+	},
+	{
+		path: 'create-account',
+		component: AuthorizationComponent,
+		children: [
 			{
-				path: 'create-account',
+				path: '',
 				component: RegistrationComponent,
 				data: { animation: 'Registration' }
 			}

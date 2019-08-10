@@ -4,20 +4,17 @@ import {
 	Output,
 	ViewChild,
 	ElementRef,
-	OnInit,
-	AfterViewInit
+	OnInit
 } from '@angular/core';
 
-import { Issue } from '../../../models/issue';
-import { Master } from '../../../models/master';
-import { Location } from '../../../models/location';
-
-import { MapboxComponent } from '../../../../features/dashboard/components/mapbox/mapbox.component';
-
-import { MapService } from '../../../services/map.service';
-import { MasterService } from '../../../services/master.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { IssueState } from '../../../enums/issue-state';
+
+import { Issue, Master, Location } from '@core/models';
+
+import { MapboxComponent } from '@shared/components/mapbox/mapbox.component';
+
+import { MapService, MasterService } from '@core/services';
+import { IssueState } from '@core/enums/issue-state';
 
 @Component({
 	selector: 'app-worker-view',
