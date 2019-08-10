@@ -1,0 +1,26 @@
+.ng-tooltip 
+  position: absolute
+  max-width: 150px
+  font-size: 14px
+  text-align: center
+  color: $white
+  padding: 3px 8px
+  background: $black-hover
+  border-radius: 4px
+  z-index: 1000
+  transition: opacity 300ms
+  opacity: 0
+  &:after 
+    content: ""
+    position: absolute
+    border-style: solid
+
+.ng-tooltip:after 
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color: transparent $black-hover transparent transparent;
+
+.ng-tooltip-show 
+  opacity: 1

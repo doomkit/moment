@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Directives
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 // Pipes
 import { TranslatePipe } from './pipes/translate.pipe';
@@ -20,7 +21,8 @@ import { MapboxComponent } from './components/mapbox/mapbox.component';
 		DropdownListComponent,
 		ClickOutsideDirective,
 		TranslatePipe,
-		MapboxComponent
+		MapboxComponent,
+		TooltipDirective
 	],
 	exports: [
 		DropdownComponent,
@@ -28,7 +30,8 @@ import { MapboxComponent } from './components/mapbox/mapbox.component';
 		TranslatePipe,
 		FormsModule,
 		ReactiveFormsModule,
-		MapboxComponent
+		MapboxComponent,
+		TooltipDirective
 	]
 })
 export class SharedModule {}
