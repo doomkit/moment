@@ -34,6 +34,6 @@ export class ProfileComponent {
 	}
 
 	logout() {
-		this.router.navigate(['login']);
+		this.router.navigate(['authorization/sign-in']);
 	}
 }

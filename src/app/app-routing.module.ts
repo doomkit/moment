@@ -23,6 +23,11 @@ const routes: Routes = [
 	},
 	{
 		path: '**',
+		redirectTo: 'dashboard',
+		pathMatch: 'full'
+	},
+	{
+		path: '**',
 		loadChildren: () =>
 			import('./features/static/static.module').then(mod => mod.StaticModule)
 	}
