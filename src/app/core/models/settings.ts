@@ -1,3 +1,4 @@
 export interface Settings {
-	theme: string;
+	darkMode: boolean;
+	language: string;
 }

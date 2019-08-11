@@ -48,6 +48,12 @@
 		},
 		"tasks": {
 			"title": "My Issues"
+		},
+		"settings": {
+			"dark-mode": "Dark mode",
+			"language": "Language",
+			"english": "English",
+			"czech": "Czech"
 		}
 	},
 	"shared": {

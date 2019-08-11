@@ -13,6 +13,7 @@ import { TranslatePipe } from './pipes/translate.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { DropdownListComponent } from './components/dropdown/dropdown-list/dropdown-list.component';
 import { MapboxComponent } from './components/mapbox/mapbox.component';
+import { SwitcherComponent } from './components/switcher/switcher.component';
 
 @NgModule({
 	imports: [CommonModule, FormsModule, ReactiveFormsModule],
@@ -22,7 +23,8 @@ import { MapboxComponent } from './components/mapbox/mapbox.component';
 		ClickOutsideDirective,
 		TranslatePipe,
 		MapboxComponent,
-		TooltipDirective
+		TooltipDirective,
+		SwitcherComponent
 	],
 	exports: [
 		DropdownComponent,
@@ -31,7 +33,8 @@ import { MapboxComponent } from './components/mapbox/mapbox.component';
 		FormsModule,
 		ReactiveFormsModule,
 		MapboxComponent,
-		TooltipDirective
+		TooltipDirective,
+		SwitcherComponent
 	]
 })
 export class SharedModule {}

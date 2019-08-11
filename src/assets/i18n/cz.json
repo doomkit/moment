@@ -48,6 +48,12 @@
 		},
 		"tasks": {
 			"title": "Moje závady"
+		},
+		"settings": {
+			"dark-mode": "Tmavý režim",
+			"language": "Jazyk",
+			"english": "Anglicky",
+			"czech": "Česky"
 		}
 	},
 	"shared": {
