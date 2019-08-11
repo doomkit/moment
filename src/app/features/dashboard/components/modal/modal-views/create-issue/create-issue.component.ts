@@ -9,13 +9,11 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
-import { Issue, Master, Location } from '@core/models';
-
 import { MapboxComponent } from '@shared/components/mapbox/mapbox.component';
 
+import { Issue, Master, Location } from '@core/models';
 import { MapService, MasterService } from '@core/services';
-import { IssueState } from '@core/enums/issue-state';
-import { AuthService } from '../../../../auth/auth.service';
+import { IssueState } from '@core/enums';
 
 @Component({
 	selector: 'app-create-issue',
@@ -110,8 +108,7 @@ export class CreateIssueComponent implements OnInit, AfterViewInit {
 	constructor(
 		private masterService: MasterService,
 		private mapService: MapService,
-		private fb: FormBuilder,
-		private authService: AuthService
+		private fb: FormBuilder
 	) {}
 
 	ngOnInit(): void {
@@ -131,7 +128,10 @@ export class CreateIssueComponent implements OnInit, AfterViewInit {
 
 	onClose(canceled: boolean): Issue {
 		if (!canceled) {
-			let userDetails = this.authService.getUserInfo();
+			// let userDetails = this.authService.getUserInfo();
+			let userDetails = {
+				name: ''
+			};
 			let newIssue: Issue = {
 				author: userDetails.name,
 				title: this.form.value.title,

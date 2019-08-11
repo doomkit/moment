@@ -28,6 +28,12 @@ import {
 	UserSettingsComponent
 } from './components';
 
+import {
+	CreateIssueComponent,
+	UpdateIssueComponent,
+	ModalComponent
+} from './components/modal';
+
 @NgModule({
 	imports: [CommonModule, SharedModule, DashboardRoutingModule],
 	declarations: [
@@ -49,7 +55,11 @@ import {
 		SidebarComponent,
 		UserInfoComponent,
 		TableComponent,
-		UserSettingsComponent
-	]
+		UserSettingsComponent,
+		ModalComponent,
+		CreateIssueComponent,
+		UpdateIssueComponent
+	],
+	entryComponents: [CreateIssueComponent, UpdateIssueComponent]
 })
 export class DashboardModule {}

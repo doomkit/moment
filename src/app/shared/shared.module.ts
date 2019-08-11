@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Directives
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { TooltipDirective } from './directives/tooltip.directive';
+import { ModalDirective } from './directives/modal.directive';
 
 // Pipes
 import { TranslatePipe } from './pipes/translate.pipe';
@@ -24,7 +25,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 		TranslatePipe,
 		MapboxComponent,
 		TooltipDirective,
-		SwitcherComponent
+		SwitcherComponent,
+		ModalDirective
 	],
 	exports: [
 		DropdownComponent,
@@ -34,7 +36,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 		ReactiveFormsModule,
 		MapboxComponent,
 		TooltipDirective,
-		SwitcherComponent
+		SwitcherComponent,
+		ModalDirective
 	]
 })
 export class SharedModule {}

@@ -13,13 +13,6 @@ import {
 	MasterService
 } from '@core/services';
 
-import {
-	ModalComponent,
-	CreateIssueComponent,
-	UpdateIssueComponent,
-	WorkerViewComponent
-} from './modal';
-
 import { environment } from '@env/environment';
 
 export function setupTranslateFactory(service: TranslationService): Function {
@@ -36,13 +29,7 @@ export function setupTranslateFactory(service: TranslationService): Function {
 		HttpClientModule,
 		SharedModule
 	],
-	exports: [BrowserAnimationsModule, HttpClientModule, ModalComponent],
-	declarations: [
-		ModalComponent,
-		CreateIssueComponent,
-		UpdateIssueComponent,
-		WorkerViewComponent
-	],
+	exports: [BrowserAnimationsModule, HttpClientModule],
 	providers: [
 		TranslationService,
 		{

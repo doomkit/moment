@@ -11,12 +11,13 @@ import {
 	Renderer2,
 	AfterContentInit
 } from '@angular/core';
-import { ModalDirective } from './modal.directive';
+
 import { CreateIssueComponent } from './modal-views/create-issue/create-issue.component';
-import { ModalType } from '../enums/modal-type';
 import { UpdateIssueComponent } from './modal-views/update-issue/update-issue.component';
-import { Issue } from '../models/issue';
-import { WorkerViewComponent } from './modal-views/worker-view/worker-view.component';
+
+import { ModalDirective } from '@shared/directives/modal.directive';
+import { ModalType } from '@core/enums';
+import { Issue } from '@core/models';
 
 @Component({
 	selector: 'app-modal',
@@ -48,10 +49,7 @@ export class ModalComponent implements OnInit, AfterContentInit {
 	}
 
 	ngAfterContentInit(): void {
-		if (
-			this.innerComponentType === ModalType.UPDATE ||
-			this.innerComponentType === ModalType.WORKER
-		) {
+		if (this.innerComponentType === ModalType.UPDATE) {
 			this.innerComponent.issue = this.issue;
 		}
 	}
@@ -98,9 +96,6 @@ export class ModalComponent implements OnInit, AfterContentInit {
 			}
 			case ModalType.UPDATE: {
 				return UpdateIssueComponent;
-			}
-			case ModalType.WORKER: {
-				return WorkerViewComponent;
 			}
 			default: {
 				console.error('Unknown modal type!');
