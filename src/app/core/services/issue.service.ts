@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, interval, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Issue } from '@core/models/issue';
@@ -8,12 +8,21 @@ import { Issue } from '@core/models/issue';
 import { environment } from '@env/environment';
 
 @Injectable()
-export class IssueService {
+export class IssueService implements OnDestroy {
 	private _issuesSubject: BehaviorSubject<Issue[]>;
+	private update: Subscription;
 
 	constructor(private http: HttpClient) {
 		this._issuesSubject = new BehaviorSubject([]);
 		this.loadIssues();
+		// TODO: use websocket instead
+		this.update = interval(1000).subscribe(val => {
+			this.loadIssues();
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.update.unsubscribe();
 	}
 
 	getAllIssues(): Observable<Issue[]> {
