@@ -18,6 +18,7 @@
 		},
 		"overview": {
 			"title": "Nahlášené závady",
+			"title-tooltip": "Seznam všech závad",
 			"show-archive": "Zobrazit archiv",
 			"hide-archive": "Skrýt archiv",
 			"sort": "Seřadit"
@@ -30,10 +31,12 @@
 			"master": "Technik"
 		},
 		"map": {
-			"active-issues": "Neodstranění závady"
+			"active-issues": "Neodstranění závady",
+			"tooltip": "Click on marker to see description"
 		},
 		"reports": {
 			"title": "Automatické vytváření závad",
+			"tooltip": "Generate issue from template",
 			"generate": "Vygenerovat",
 			"generated": "Splněno"
 		},

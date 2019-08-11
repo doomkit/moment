@@ -16,8 +16,9 @@ import { IssueState } from '@core/enums/issue-state';
 		<div class="scrollable-container">
 			<div class="content">
 				<div class="content__header">
-					<h2>
+					<h2 [tooltip]="'dashboard.map.tooltip' | translate">
 						{{ 'dashboard.map.active-issues' | translate }}: {{ counter }}
+						<i class="fas fa-info-circle info-icon"></i>
 					</h2>
 				</div>
 				<app-mapbox></app-mapbox>

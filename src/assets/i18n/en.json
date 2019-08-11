@@ -18,6 +18,7 @@
 		},
 		"overview": {
 			"title": "Known Issues",
+			"title-tooltip": "List of all issues",
 			"show-archive": "Show archive",
 			"hide-archive": "Hide archive",
 			"sort": "Sort"
@@ -30,10 +31,12 @@
 			"master": "Master"
 		},
 		"map": {
-			"active-issues": "Relevant Issues"
+			"active-issues": "Relevant Issues",
+			"tooltip": "Click on marker to see description"
 		},
 		"reports": {
 			"title": "Automatic issue generation",
+			"tooltip": "Generate issue from template",
 			"generate": "Generate",
 			"generated": "Done"
 		},

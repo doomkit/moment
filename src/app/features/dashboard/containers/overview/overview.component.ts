@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs/Subscription';
 					[title]="'dashboard.overview.title'"
 					[headings]="headings"
 					[sort]="true"
+					[tooltip]="'dashboard.overview.title-tooltip'"
 					(updateIssue)="onIssueUpdate($event)"
 				></app-table>
 			</div>

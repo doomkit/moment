@@ -7,8 +7,10 @@ import { ColHeading } from './col-heading';
 	selector: 'app-table',
 	template: `
 		<div class="content__header">
-			<h2>{{ title | translate }}</h2>
-
+			<h2 *ngIf="!tooltip">{{ title | translate }}</h2>
+			<h2 *ngIf="tooltip" [tooltip]="tooltip | translate">
+				{{ title | translate }} <i class="fas fa-info-circle info-icon"></i>
+			</h2>
 			<div *ngIf="sort" class="filters">
 				<span class="toggle-archive" (click)="onToggleArchive()">
 					{{
@@ -86,6 +88,7 @@ export class TableComponent implements OnInit {
 	@Input() title: string;
 	@Input() headings: ColHeading[];
 	@Input() sort: boolean = false;
+	@Input() tooltip: string;
 	@Output() updateIssue = new EventEmitter<Issue>();
 
 	ngOnInit(): void {

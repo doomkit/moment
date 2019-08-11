@@ -1,13 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IssueService } from '../../../../core/services/issue.service';
-import { Issue } from '../../../../core/models/issue';
 import { Subscription } from 'rxjs';
+import { IssueService } from '@core/services';
+import { Issue } from '@core/models';
 
 @Component({
 	selector: 'app-automatisation',
 	template: `
 		<div class="content">
-			<h2>{{ 'dashboard.reports.title' | translate }}</h2>
+			<div class="content__header">
+				<h2 [tooltip]="'dashboard.reports.tooltip' | translate">
+					{{ 'dashboard.reports.title' | translate }}
+					<i class="fas fa-info-circle info-icon"></i>
+				</h2>
+			</div>
 			<ng-container *ngFor="let template of templates">
 				<app-autoreport
 					[issue]="template"
