@@ -24,7 +24,8 @@ import {
 	NavbarComponent,
 	SidebarComponent,
 	UserInfoComponent,
-	TableComponent
+	TableComponent,
+	UserSettingsComponent
 } from './components';
 
 @NgModule({
@@ -47,7 +48,8 @@ import {
 		NavbarComponent,
 		SidebarComponent,
 		UserInfoComponent,
-		TableComponent
+		TableComponent,
+		UserSettingsComponent
 	]
 })
 export class DashboardModule {}

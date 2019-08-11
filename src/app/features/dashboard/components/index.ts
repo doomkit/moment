@@ -7,3 +7,4 @@ export * from './navbar/navbar.component';
 export * from './sidebar/sidebar.component';
 export * from './user-info/user-info.component';
 export * from './table/table.component';
+export * from './user-settings/user-settings.component';

@@ -54,7 +54,8 @@
 		"actions": {
 			"new-issue": "New Issue",
 			"save": "Save",
-			"cancel": "Cancel"
+			"cancel": "Cancel",
+			"logout": "Logout"
 		}
 	},
 	"static": {

@@ -54,7 +54,8 @@
 		"actions": {
 			"new-issue": "Nová závada",
 			"save": "Vytvořit",
-			"cancel": "Zrušit"
+			"cancel": "Zrušit",
+			"logout": "Odhlásit se"
 		}
 	},
 	"static": {
