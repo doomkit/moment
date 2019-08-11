@@ -17,7 +17,11 @@ import { MapboxComponent } from './components/mapbox/mapbox.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 
 @NgModule({
-	imports: [CommonModule, FormsModule, ReactiveFormsModule],
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' })
+	],
 	declarations: [
 		DropdownComponent,
 		DropdownListComponent,
