@@ -31,6 +31,10 @@
 		},
 		"map": {
 			"active-issues": "Neodstranění závady"
+		},
+		"reports": {
+			"generate": "Vygenerovat",
+			"generated": "Splněno"
 		}
 	},
 	"shared": {

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IssueService } from '../../../../core/services/issue.service';
 import { Issue } from '../../../../core/models/issue';
 import { AuthService } from '../../../../auth/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-automatisation',
@@ -20,14 +21,15 @@ import { AuthService } from '../../../../auth/auth.service';
 	`,
 	styleUrls: ['./automatisation.component.sass']
 })
-export class AutomatisationComponent implements OnInit {
+export class AutomatisationComponent implements OnInit, OnDestroy {
 	autoIssues: Issue[] = [];
 	templates: Issue[] = [];
+	subscriptions: Subscription[] = [];
 
 	constructor(private issueService: IssueService) {}
 
-	ngOnInit() {
-		this.issueService
+	ngOnInit(): void {
+		let sub1 = this.issueService
 			.getAllIssues()
 			.subscribe(
 				data =>
@@ -35,17 +37,20 @@ export class AutomatisationComponent implements OnInit {
 				err => console.error(err),
 				() => {}
 			);
-		this.issueService
+		let sub2 = this.issueService
 			.getAutomaticGeneratedIssues()
 			.subscribe(data => (this.templates = data), err => console.error(err));
+		this.subscriptions = [...this.subscriptions, sub1, sub2];
 	}
 
-	onGenerateIssue(issue: Issue) {
+	ngOnDestroy(): void {
+		this.subscriptions.forEach(sub => sub.unsubscribe());
+	}
+
+	onGenerateIssue(issue: Issue): void {
 		delete issue.id;
 		issue.createdAt = +new Date();
-		issue.author = '';
-		this.issueService
-			.createIssue(issue)
-			.subscribe(data => {}, err => console.error(err));
+		issue.author = ''; // TODO: take author from session
+		this.issueService.createIssue(issue).subscribe();
 	}
 }

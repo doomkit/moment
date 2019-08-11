@@ -1,27 +1,39 @@
-import { Component, Input, Output, EventEmitter, OnInit, AfterContentInit } from '@angular/core';
+import {
+	Component,
+	Input,
+	Output,
+	EventEmitter,
+	OnInit,
+	AfterContentInit
+} from '@angular/core';
 import { Issue } from '../../../../core/models/issue';
 
 @Component({
-  selector: 'app-autoreport',
-  template: `
-	<div class="predefined-issue">
-		<span>{{ issue.title }}</span>
-		<span>{{ issue.street }}</span>
-		<button class="btn yellow-btn btn_small"
-			(click)="autoReport(issue)"
-			[disabled]="generated">
-			{{ generated ? 'Splněno' : 'Vygenerovat' }}
-		</button>
-	</div>
-  `,
-  styleUrls: ['./autoreport.component.sass']
+	selector: 'app-autoreport',
+	template: `
+		<div class="predefined-issue">
+			<span>{{ issue.title }}</span>
+			<span>{{ issue.street }}</span>
+			<button
+				class="btn yellow-btn btn_small"
+				(click)="autoReport(issue)"
+				[disabled]="generated"
+			>
+				{{
+					generated
+						? ('dashboard.reports.generated' | translate)
+						: ('dashboard.reports.generate' | translate)
+				}}
+			</button>
+		</div>
+	`,
+	styleUrls: ['./autoreport.component.sass']
 })
 export class AutoreportComponent implements OnInit {
-
 	@Input() issue: Issue;
 	@Output() generateIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
 	@Input() autoIssues: Issue[];
-	
+
 	generated: boolean = false;
 
 	autoReport(issue: Issue) {
@@ -30,13 +42,12 @@ export class AutoreportComponent implements OnInit {
 			this.generateIssue.emit(issue);
 		}
 	}
-	
+
 	ngOnInit(): void {
-		this.autoIssues.forEach((issue) => {
+		this.autoIssues.forEach(issue => {
 			if (this.issue.title === issue.title) {
 				this.generated = true;
 			}
 		});
 	}
-
 }

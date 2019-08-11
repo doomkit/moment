@@ -31,6 +31,10 @@
 		},
 		"map": {
 			"active-issues": "Relevant Issues"
+		},
+		"reports": {
+			"generate": "Generate",
+			"generated": "Done"
 		}
 	},
 	"shared": {

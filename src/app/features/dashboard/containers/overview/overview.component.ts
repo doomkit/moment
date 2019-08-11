@@ -55,15 +55,12 @@ export class OverviewComponent implements OnDestroy {
 	subscriptions: Subscription[] = [];
 
 	constructor(private issueService: IssueService) {
-		let sub = this.issueService.getAllIssues().subscribe(
-			(issues: Issue[]) => {
-				if (!issues) {
-					return;
-				}
-				this.issues = issues;
-			},
-			err => console.error(err)
-		);
+		let sub = this.issueService
+			.getAllIssues()
+			.subscribe(
+				(issues: Issue[]) => (this.issues = issues),
+				err => console.error(err)
+			);
 		this.subscriptions = [...this.subscriptions, sub];
 	}
 
