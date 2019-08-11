@@ -20,9 +20,11 @@ import {
 					<h3>{{ 'dashboard.statistics.state' | translate }}</h3>
 					<div class="container">
 						<app-pie-chart></app-pie-chart>
-						<app-labels [legend]="legends" [archivedIssues]="archivedIssues">
-						</app-labels>
-						<app-bar-chart></app-bar-chart>
+						<app-labels
+							[legend]="legends"
+							[archivedIssues]="archivedIssues"
+						></app-labels>
+						<!-- <app-bar-chart></app-bar-chart> -->
 					</div>
 				</div>
 				<div class="statistics__section">
@@ -41,7 +43,7 @@ import {
 })
 export class StatisticsComponent implements OnInit {
 	@ViewChild(PieChartComponent, { static: true }) pieChart: PieChartComponent;
-	@ViewChild(BarChartComponent, { static: true }) barChart: BarChartComponent;
+	// @ViewChild(BarChartComponent, { static: true }) barChart: BarChartComponent;
 	@ViewChild(LineChartComponent, { static: true })
 	lineChart: LineChartComponent;
 	allIssues: Issue[];
@@ -98,12 +100,12 @@ export class StatisticsComponent implements OnInit {
 			backgroundColors,
 			borderColors
 		);
-		this.barChart.buildChart(
-			stateLabels,
-			charData,
-			backgroundColors,
-			borderColors
-		);
+		// this.barChart.buildChart(
+		// 	stateLabels,
+		// 	charData,
+		// 	backgroundColors,
+		// 	borderColors
+		// );
 		this.lineChart.buildChart(this.lineChart.getGraphData(this.allIssues));
 		this.legends = this.generateLabels(stateLabels, charData, backgroundColors);
 	}
