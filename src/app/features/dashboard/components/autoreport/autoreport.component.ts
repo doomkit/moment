@@ -1,12 +1,5 @@
-import {
-	Component,
-	Input,
-	Output,
-	EventEmitter,
-	OnInit,
-	AfterContentInit
-} from '@angular/core';
-import { Issue } from '../../../../core/models/issue';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Issue } from '@core/models/issue';
 
 @Component({
 	selector: 'app-autoreport',
@@ -31,7 +24,7 @@ import { Issue } from '../../../../core/models/issue';
 })
 export class AutoreportComponent implements OnInit {
 	@Input() issue: Issue;
-	@Output() generateIssue: EventEmitter<Issue> = new EventEmitter<Issue>();
+	@Output() generateIssue = new EventEmitter<Issue>();
 	@Input() autoIssues: Issue[];
 
 	generated: boolean = false;
