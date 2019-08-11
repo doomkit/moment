@@ -33,8 +33,18 @@
 			"active-issues": "Neodstranění závady"
 		},
 		"reports": {
+			"title": "Automatické vytváření závad",
 			"generate": "Vygenerovat",
 			"generated": "Splněno"
+		},
+		"statistics": {
+			"title": "Aktuální reporty",
+			"state": "Stav závad",
+			"last-issues": "Přehled nových závad",
+			"interval": "posledních 14 dní"
+		},
+		"tasks": {
+			"title": "Moje závady"
 		}
 	},
 	"shared": {

@@ -33,8 +33,18 @@
 			"active-issues": "Relevant Issues"
 		},
 		"reports": {
+			"title": "Automatic issue generation",
 			"generate": "Generate",
 			"generated": "Done"
+		},
+		"statistics": {
+			"title": "Current reports",
+			"state": "Issues states",
+			"last-issues": "New issues overview",
+			"interval": "last 14 days"
+		},
+		"tasks": {
+			"title": "My Issues"
 		}
 	},
 	"shared": {
