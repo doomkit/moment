@@ -23,7 +23,8 @@ import {
 	PieChartComponent,
 	NavbarComponent,
 	SidebarComponent,
-	UserInfoComponent
+	UserInfoComponent,
+	TableComponent
 } from './components';
 
 @NgModule({
@@ -45,7 +46,8 @@ import {
 		PieChartComponent,
 		NavbarComponent,
 		SidebarComponent,
-		UserInfoComponent
+		UserInfoComponent,
+		TableComponent
 	]
 })
 export class DashboardModule {}

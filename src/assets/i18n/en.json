@@ -15,6 +15,19 @@
 				"reports": "Statistics",
 				"map": "Issue Map"
 			}
+		},
+		"overview": {
+			"title": "Known Issues",
+			"show-archive": "Show archive",
+			"hide-archive": "Hide archive",
+			"sort": "Sort"
+		},
+		"table-headings": {
+			"name": "Name",
+			"location": "Location",
+			"created": "Created at",
+			"state": "State",
+			"master": "Master"
 		}
 	},
 	"shared": {
