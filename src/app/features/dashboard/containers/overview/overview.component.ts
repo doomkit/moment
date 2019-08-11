@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { IssueService } from '@core/services/issue.service';
 import { Issue } from '@core/models/issue';
 import { Subscription } from 'rxjs/Subscription';
+import { ModalType } from '@core/enums';
 
 @Component({
 	selector: 'app-overview',
@@ -18,13 +19,13 @@ import { Subscription } from 'rxjs/Subscription';
 				></app-table>
 			</div>
 		</div>
-		<!--
-		<app-modal *ngIf="showUpdateIssueModal"
+		<app-modal
+			*ngIf="showUpdateIssueModal"
 			[innerComponentType]="updateMoadlType"
 			[issue]="selectedIssue"
-			(afterClose)="onUpdateModalClose($event)">
-    </app-modal>
-    -->
+			(afterClose)="onUpdateModalClose($event)"
+		>
+		</app-modal>
 	`,
 	styleUrls: ['./overview.component.sass']
 })
@@ -54,6 +55,9 @@ export class OverviewComponent implements OnDestroy {
 
 	issues: Issue[];
 	subscriptions: Subscription[] = [];
+	showUpdateIssueModal = false;
+	selectedIssue: Issue;
+	updateMoadlType = ModalType.UPDATE;
 
 	constructor(private issueService: IssueService) {
 		let sub = this.issueService
@@ -69,27 +73,17 @@ export class OverviewComponent implements OnDestroy {
 		this.subscriptions.forEach(sub => sub.unsubscribe());
 	}
 
-	onIssueUpdate(issue: Issue) {
-		console.log(issue);
+	onIssueUpdate(issue: Issue): void {
+		this.selectedIssue = issue;
+		this.showUpdateIssueModal = true;
+		event.stopPropagation();
 	}
 
-	// openUpdateIssueModal(issue: Issue): void {
-	// 	this.selectedIssue = issue;
-	// 	this.showUpdateIssueModal = true;
-	// 	event.stopPropagation();
-	// }
-
-	// onUpdateModalClose(issue: Issue): void {
-	// 	this.showUpdateIssueModal = false;
-	// 	this.selectedIssue = null;
-	// 	if (issue) {
-	// 		this.issueService
-	// 			.updateIssue(issue)
-	// 			.subscribe(
-	// 				data => {},
-	// 				err => console.error(err),
-	// 				() => this.loadIssues()
-	// 			);
-	// 	}
-	// }
+	onUpdateModalClose(issue: Issue): void {
+		this.showUpdateIssueModal = false;
+		this.selectedIssue = null;
+		if (issue) {
+			this.issueService.updateIssue(issue).subscribe();
+		}
+	}
 }
