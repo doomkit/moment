@@ -28,6 +28,9 @@
 			"created": "Vytvořeno",
 			"state": "Stav",
 			"master": "Technik"
+		},
+		"map": {
+			"active-issues": "Neodstranění závady"
 		}
 	},
 	"shared": {

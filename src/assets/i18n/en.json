@@ -28,6 +28,9 @@
 			"created": "Created at",
 			"state": "State",
 			"master": "Master"
+		},
+		"map": {
+			"active-issues": "Relevant Issues"
 		}
 	},
 	"shared": {

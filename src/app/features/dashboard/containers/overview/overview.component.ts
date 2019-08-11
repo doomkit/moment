@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IssueService } from '../../../../core/services/issue.service';
-import { Issue } from '../../../../core/models/issue';
-import { ModalType } from '../../../../core/enums/modal-type';
+import { Component, OnDestroy } from '@angular/core';
+import { IssueService } from '@core/services/issue.service';
+import { Issue } from '@core/models/issue';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
