@@ -124,6 +124,11 @@
 			"id": 4,
 			"name": "Dominika Svobodová",
 			"email": "dominika.svobodova@gmail.com"
+		},
+		{
+			"id": 5,
+			"name": "John Doe",
+			"email": "john.doe@gmail.com"
 		}
 	],
 	"users": [
@@ -133,7 +138,11 @@
 			"role": 0,
 			"email": "john.doe@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79457248
+			"phone": 79457248,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 1,
@@ -141,7 +150,11 @@
 			"role": 2,
 			"email": "tereza.macek@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79411659
+			"phone": 79411659,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 2,
@@ -149,7 +162,11 @@
 			"role": 2,
 			"email": "filip.sykora@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79363066
+			"phone": 79363066,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 3,
@@ -157,7 +174,11 @@
 			"role": 2,
 			"email": "matej.smolak@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79569572
+			"phone": 79569572,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 4,
@@ -165,7 +186,11 @@
 			"role": 2,
 			"email": "frantisek.dusek@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79617070
+			"phone": 79617070,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 5,
@@ -173,7 +198,11 @@
 			"role": 2,
 			"email": "dominika.svobodova@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79343529
+			"phone": 79343529,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		},
 		{
 			"id": 6,
@@ -181,7 +210,11 @@
 			"role": 1,
 			"email": "tatiana.skala@gmail.com",
 			"password": "1qaz2wsx",
-			"phone": 79343449
+			"phone": 79343449,
+			"settings": {
+				"darkMode": false,
+				"language": "english"
+			}
 		}
 	]
 }
