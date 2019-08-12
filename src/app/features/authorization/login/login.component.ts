@@ -14,6 +14,7 @@ import { UserService, TranslationService } from '@core/services';
 					type="email"
 					placeholder="Email"
 					formControlName="email"
+					[tooltip]="'john.doe@gmail.com'"
 				/>
 
 				<label for="pass">password</label>
@@ -22,6 +23,7 @@ import { UserService, TranslationService } from '@core/services';
 					type="password"
 					placeholder="Heslo"
 					formControlName="password"
+					[tooltip]="'1qaz2wsx'"
 				/>
 
 				<button
@@ -31,9 +33,9 @@ import { UserService, TranslationService } from '@core/services';
 				>
 					Log in
 				</button>
-				<a routerLink="/authorization/create-account" routerLinkActive="active"
-					>Don't have account yet?</a
-				>
+				<a routerLink="/authorization/create-account" routerLinkActive="active">
+					Don't have account yet?
+				</a>
 			</form>
 
 			<div *ngIf="error" class="error">

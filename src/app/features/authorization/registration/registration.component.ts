@@ -6,11 +6,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 	template: `
 		<div class="registration">
 			<form (submit)="createUser()" [formGroup]="registrationForm">
-				<label for="name">jméno</label>
+				<label for="name">name</label>
 				<input
 					id="name"
 					type="text"
-					placeholder="Jméno a příjmení"
+					placeholder="Name and Surname"
 					formControlName="name"
 				/>
 
@@ -22,11 +22,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 					formControlName="email"
 				/>
 
-				<label for="pass">heslo</label>
+				<label for="pass">password</label>
 				<input
 					id="pass"
 					type="password"
-					placeholder="Heslo"
+					placeholder="password"
 					formControlName="password"
 				/>
 
@@ -35,11 +35,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 					class="btn yellow-btn"
 					[disabled]="!registrationForm.valid"
 				>
-					Registrovat
+					Register
 				</button>
 
 				<a routerLink="/authorization/sign-in" routerLinkActive="active">
-					Už jste se zaregistrovali?
+					Already registered?
 				</a>
 			</form>
 		</div>
