@@ -1,7 +1,5 @@
 export enum UserRole {
-	Administrátor,
-	Dispečer,
-	Technik,
-	Magistrát,
-	Uživatel
+	ADMINISTRATOR,
+	USER,
+	MASTER
 }

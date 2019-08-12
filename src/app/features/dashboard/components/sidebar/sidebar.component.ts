@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { User } from '@core/models/user';
+import { UserRole } from '@core/enums';
 
 @Component({
 	selector: 'app-sidebar',
@@ -59,6 +60,9 @@ export class SidebarComponent {
 	];
 
 	getUserRole(user: User) {
-		return 'TODO'; // TODO: get role from ENUM
+		if (user) {
+			return UserRole[user.role];
+		}
+		return '';
 	}
 }
