@@ -23,21 +23,14 @@ export class DashboardComponent {
 		private issueService: IssueService,
 		private userService: UserService
 	) {
-		this.userService.getAuthorizedUser().subscribe(
-			user => {
-				console.log(user);
-				this.user = user;
-			},
-			err => {
-				// TODO: show error notification
-				console.error(err);
-			}
-		);
+		this.userService
+			.getAuthorizedUser()
+			.subscribe(user => (this.user = user), err => console.error(err));
 	}
 
 	onCreateIssue(newIssue: Issue) {
 		this.issueService
 			.createIssue(newIssue)
-			.subscribe(data => {}, err => console.error(err));
+			.subscribe(null, err => console.error(err));
 	}
 }

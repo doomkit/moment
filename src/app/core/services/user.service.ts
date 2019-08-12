@@ -51,16 +51,17 @@ export class UserService {
 	}
 
 	logout() {
-		this.cookieService.delete(environment.session.userId);
+		this.cookieService.deleteAll();
 	}
 
 	checkSession(): boolean {
+		// TODO: renew session before expiration
 		return this.cookieService.check(environment.session.userId);
 	}
 
 	private createSession(user: User): void {
 		const now = new Date();
-		const minutes = 10;
+		const minutes = 20;
 		const exprires = new Date(now.getTime() + minutes * 60000);
 		this.cookieService.set(environment.session.userId, `${user.id}`, exprires);
 	}
