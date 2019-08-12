@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { CookieService } from 'ngx-cookie-service';
 
 import { User } from '@core/models/user';
 import { environment } from '@env/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
 	constructor(private http: HttpClient, private cookieService: CookieService) {}
 
+	getAuthorizedUser(): Observable<User> {
+		if (!this.checkSession()) {
+			return of(undefined);
+		}
+		let userID = this.cookieService.get(environment.session.userId);
+		return this.http
+			.get<User>(`${environment.api.base_url}/users/${userID}`)
+			.pipe(
+				map(res => {
+					delete res.password;
+					return res;
+				})
+			);
+	}
+
 	private getUsers(): Observable<User[]> {
 		return this.http.get<User[]>(`${environment.api.base_url}/users`);
-	}
-
-	getUser(id: string): Observable<User> {
-		return this.http.get<User>(`${environment.api.base_url}/users/${id}`);
-	}
-
-	private createSession(user: User): void {
-		const now = new Date();
-		const minutes = 10;
-		const exprires = new Date(now.getTime() + minutes * 60000);
-		this.cookieService.set(environment.session.userId, `${user.id}`, exprires);
-	}
-
-	private deleteSession(): void {
-		this.cookieService.delete(environment.session.userId);
 	}
 
 	login(email: string, password: string): Promise<User> {
@@ -47,5 +48,20 @@ export class UserService {
 			);
 		});
 		return result;
+	}
+
+	logout() {
+		this.cookieService.delete(environment.session.userId);
+	}
+
+	checkSession(): boolean {
+		return this.cookieService.check(environment.session.userId);
+	}
+
+	private createSession(user: User): void {
+		const now = new Date();
+		const minutes = 10;
+		const exprires = new Date(now.getTime() + minutes * 60000);
+		this.cookieService.set(environment.session.userId, `${user.id}`, exprires);
 	}
 }

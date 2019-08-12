@@ -24,16 +24,13 @@ export class ProfileComponent {
 	user: User;
 
 	constructor(private router: Router, private userService: UserService) {
-		let email = 'john.doe@gmail.com'; // TODO: get email from session
-		// this.userService
-		// 	.getUsers()
-		// 	.subscribe(
-		// 		data => (this.user = data.find(elem => elem.email === email)),
-		// 		err => console.error(err)
-		// 	);
+		this.userService
+			.getAuthorizedUser()
+			.subscribe(user => (this.user = user), err => console.error(err));
 	}
 
 	logout() {
+		this.userService.logout();
 		this.router.navigate(['authorization/sign-in']);
 	}
 }

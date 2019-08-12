@@ -23,9 +23,9 @@ export class DashboardComponent {
 		private issueService: IssueService,
 		private userService: UserService
 	) {
-		let userID = '0'; // TODO: get userID from session
-		this.userService.getUser(userID).subscribe(
+		this.userService.getAuthorizedUser().subscribe(
 			user => {
+				console.log(user);
 				this.user = user;
 			},
 			err => {
