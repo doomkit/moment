@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { IssueService } from '@core/services';
+import { IssueService, UserService } from '@core/services';
 import { ModalType } from '@core/enums';
 import { Issue } from '@core/models';
 
@@ -18,13 +18,13 @@ import { Issue } from '@core/models';
 				></app-table>
 			</div>
 		</div>
-		<!--
-	<app-modal *ngIf="showUpdateIssueModal"
-		[innerComponentType]="updateMoadlType"
-		[issue]="selectedIssue"
-		(afterClose)="onUpdateModalClose($event)">
-  </app-modal>
-  -->
+		<app-modal
+			*ngIf="showUpdateIssueModal"
+			[innerComponentType]="updateMoadlType"
+			[issue]="selectedIssue"
+			(afterClose)="onUpdateModalClose($event)"
+		>
+		</app-modal>
 	`,
 	styleUrls: ['./tasks.component.sass']
 })
@@ -55,13 +55,27 @@ export class TasksComponent implements OnDestroy {
 	issues: Issue[];
 	subscriptions: Subscription[] = [];
 	userName: string = '';
+	selectedIssue: Issue;
+	showUpdateIssueModal = false;
+	updateMoadlType = ModalType.UPDATE;
 
-	constructor(private issueService: IssueService) {
-		// TODO: get user name
-		// this.userName = localStorage.getItem('name');
-		const sub = this.issueService.getAllIssues().subscribe(
-			(issues: Issue[]) => {
-				this.issues = issues.filter(issue => issue.master === this.userName);
+	constructor(
+		private issueService: IssueService,
+		private userService: UserService
+	) {
+		const sub = userService.getAuthorizedUser().subscribe(
+			user => {
+				this.userName = user.name;
+				const sub = this.issueService
+					.getAllIssues()
+					.subscribe(
+						(issues: Issue[]) =>
+							(this.issues = issues.filter(
+								issue => issue.master === this.userName
+							)),
+						err => console.error(err)
+					);
+				this.subscriptions = [...this.subscriptions, sub];
 			},
 			err => console.error(err)
 		);
@@ -73,26 +87,18 @@ export class TasksComponent implements OnDestroy {
 	}
 
 	onIssueUpdate(issue): void {
-		console.log(issue);
+		this.selectedIssue = issue;
+		this.showUpdateIssueModal = true;
+		event.stopPropagation();
 	}
 
-	// openUpdateIssueModal(issue: Issue): void {
-	// this.selectedIssue = issue;
-	// this.showUpdateIssueModal = true;
-	// event.stopPropagation();
-	// }
-
-	// onUpdateModalClose(issue: Issue): void {
-	// 	this.showUpdateIssueModal = false;
-	// 	this.selectedIssue = null;
-	// 	if (issue) {
-	// 		this.issueService
-	// 			.updateIssue(issue)
-	// 			.subscribe(
-	// 				data => {},
-	// 				err => console.error(err),
-	// 				() => this.loadIssues()
-	// 			);
-	// 	}
-	// }
+	onUpdateModalClose(issue: Issue): void {
+		this.showUpdateIssueModal = false;
+		this.selectedIssue = null;
+		if (issue) {
+			this.issueService
+				.updateIssue(issue)
+				.subscribe(null, err => console.error(err));
+		}
+	}
 }
