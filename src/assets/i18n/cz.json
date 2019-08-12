@@ -6,13 +6,67 @@
 		"navbar": {
 			"title": "Itinerář",
 			"city": "Praha"
+		},
+		"sidebar": {
+			"menu": {
+				"issues": "Nahlášené závady",
+				"tasks": "Moje úkoly",
+				"automatization": "Automatizace",
+				"reports": "Reporty",
+				"map": "Mapa"
+			}
+		},
+		"overview": {
+			"title": "Nahlášené závady",
+			"title-tooltip": "Seznam všech závad",
+			"show-archive": "Zobrazit archiv",
+			"hide-archive": "Skrýt archiv",
+			"sort": "Seřadit"
+		},
+		"table-headings": {
+			"name": "Název",
+			"location": "Lokace",
+			"created": "Vytvořeno",
+			"state": "Stav",
+			"master": "Technik"
+		},
+		"map": {
+			"active-issues": "Neodstranění závady",
+			"tooltip": "Click on marker to see description"
+		},
+		"reports": {
+			"title": "Automatické vytváření závad",
+			"tooltip": "Generate issue from template",
+			"generate": "Vygenerovat",
+			"generated": "Splněno"
+		},
+		"statistics": {
+			"title": "Aktuální reporty",
+			"state": "Stav závad",
+			"last-issues": "Přehled nových závad",
+			"interval": "posledních 14 dní"
+		},
+		"tasks": {
+			"title": "Moje závady"
+		},
+		"settings": {
+			"dark-mode": "Tmavý režim",
+			"language": "Jazyk",
+			"english": "Anglicky",
+			"czech": "Česky"
 		}
 	},
 	"shared": {
 		"actions": {
 			"new-issue": "Nová závada",
 			"save": "Vytvořit",
-			"cancel": "Zrušit"
+			"cancel": "Zrušit",
+			"logout": "Odhlásit se"
+		}
+	},
+	"static": {
+		"not-found": {
+			"page": "Stránka nenalezena"
 		}
 	},
 	"app": "Itinerář"

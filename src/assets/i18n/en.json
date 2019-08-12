@@ -6,13 +6,67 @@
 		"navbar": {
 			"title": "Itinerary",
 			"city": "Prague"
+		},
+		"sidebar": {
+			"menu": {
+				"issues": "Known Issues",
+				"tasks": "My Tasks",
+				"automatization": "Automatisation",
+				"reports": "Statistics",
+				"map": "Issue Map"
+			}
+		},
+		"overview": {
+			"title": "Known Issues",
+			"title-tooltip": "List of all issues",
+			"show-archive": "Show archive",
+			"hide-archive": "Hide archive",
+			"sort": "Sort"
+		},
+		"table-headings": {
+			"name": "Name",
+			"location": "Location",
+			"created": "Created at",
+			"state": "State",
+			"master": "Master"
+		},
+		"map": {
+			"active-issues": "Relevant Issues",
+			"tooltip": "Click on marker to see description"
+		},
+		"reports": {
+			"title": "Automatic issue generation",
+			"tooltip": "Generate issue from template",
+			"generate": "Generate",
+			"generated": "Done"
+		},
+		"statistics": {
+			"title": "Current reports",
+			"state": "Issues states",
+			"last-issues": "New issues overview",
+			"interval": "last 14 days"
+		},
+		"tasks": {
+			"title": "My Issues"
+		},
+		"settings": {
+			"dark-mode": "Dark mode",
+			"language": "Language",
+			"english": "English",
+			"czech": "Czech"
 		}
 	},
 	"shared": {
 		"actions": {
 			"new-issue": "New Issue",
 			"save": "Save",
-			"cancel": "Cancel"
+			"cancel": "Cancel",
+			"logout": "Logout"
+		}
+	},
+	"static": {
+		"not-found": {
+			"page": "Page not found"
 		}
 	},
 	"app": "Itenerary"

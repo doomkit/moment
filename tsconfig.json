@@ -17,6 +17,6 @@
 			"@shared/*": ["app/shared/*"],
 			"@env/*": ["environments/*"]
 		},
-		"module": "es2015"
+		"module": "esnext"
 	}
 }

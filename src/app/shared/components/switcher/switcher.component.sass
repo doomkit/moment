@@ -1,0 +1,52 @@
+.toggle
+  position: relative
+  display: block
+  width: 42px
+  height: 24px
+  cursor: pointer
+  -webkit-tap-highlight-color: transparent
+  transform: translate3d(0,0,0)
+  &:before
+    content: ""
+    position: relative
+    top: 1px
+    left: 1px
+    width: 40px
+    height: 22px
+    display: block
+    background: #C8CCD4
+    border-radius: 12px
+    transition: background .2s ease
+  span
+    position: absolute
+    top: 0
+    left: 0
+    width: 24px
+    height: 24px
+    display: block
+    background: white
+    border-radius: 50%
+    box-shadow: 0 2px 6px rgba(#9A9999,.75)
+    transition: all .2s ease
+    svg
+      margin: 7px
+      fill: none
+      path
+        stroke: #C8CCD4
+        stroke-width: 2
+        stroke-linecap: round
+        stroke-linejoin: round
+        stroke-dasharray: 24
+        stroke-dashoffset: 0
+        transition: all .5s linear
+        
+
+#cbx:checked + .toggle
+  &:before
+    background: #52D66B
+  span
+    transform: translateX(18px)
+    path
+      stroke: #52D66B
+      stroke-dasharray: 25
+      stroke-dashoffset: 25

@@ -1,51 +1,59 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IssueService } from '../../../../core/services/issue.service';
-import { Issue } from '../../../../core/models/issue';
-import { MapboxComponent } from '../../components/mapbox/mapbox.component';
-import { IssueState } from '../../../../core/enums/issue-state';
+import {
+	Component,
+	ViewChild,
+	ChangeDetectorRef,
+	AfterViewInit
+} from '@angular/core';
+
+import { IssueService } from '@core/services';
+import { MapboxComponent } from '@shared/components/mapbox/mapbox.component';
+import { Issue } from '@core/models';
+import { IssueState } from '@core/enums/issue-state';
 
 @Component({
-  selector: 'app-map',
-  template: `
+	selector: 'app-map',
+	template: `
 		<div class="scrollable-container">
 			<div class="content">
-
 				<div class="content__header">
-					<h2>Neodstranění závady: {{ counter }}</h2>
+					<h2 [tooltip]="'dashboard.map.tooltip' | translate">
+						{{ 'dashboard.map.active-issues' | translate }}: {{ counter }}
+						<i class="fas fa-info-circle info-icon"></i>
+					</h2>
 				</div>
-				
 				<app-mapbox></app-mapbox>
 			</div>
 		</div>
-  `,
-  styleUrls: ['./map.component.sass']
+	`,
+	styleUrls: ['./map.component.sass']
 })
-export class MapComponent implements OnInit {
-
+export class MapComponent implements AfterViewInit {
 	@ViewChild(MapboxComponent, { static: true }) mapbox: MapboxComponent;
-	allIssues: Issue[];
 	counter: number;
 
-  constructor(private issueService: IssueService) {
-		// TODO: subscribe for issue subject
-	}
+	constructor(
+		private issueService: IssueService,
+		private cdr: ChangeDetectorRef
+	) {}
 
-  ngOnInit() {
+	ngAfterViewInit(): void {
 		this.issueService.getAllIssues().subscribe(
-			(data) => this.allIssues = data.filter(
-				(elem) => {
-					return (
-						(!elem.archived) &&
-						(IssueState[elem.state] !== IssueState[IssueState.CONFIRMED]) &&
-						(IssueState[elem.state] !== IssueState[IssueState.COMPLETE])
-					);
+			(allIssues: Issue[]) => {
+				if (!allIssues) {
+					return;
 				}
-			),
-			(err) => console.error(err),
-			() =>  {
-				this.counter = this.allIssues.length;
-				this.mapbox.addMarkers(this.allIssues);
-			}
+				const issuesOnMap = allIssues.filter(issue => {
+					return (
+						!issue.archived &&
+						IssueState[issue.state] !== IssueState[IssueState.CONFIRMED] &&
+						IssueState[issue.state] !== IssueState[IssueState.COMPLETE]
+					);
+				});
+				this.mapbox.addMarkers(issuesOnMap);
+				this.counter = issuesOnMap.length;
+				this.cdr.detectChanges();
+			},
+			err => console.error(err)
 		);
-  }
+	}
 }

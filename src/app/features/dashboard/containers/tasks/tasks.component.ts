@@ -1,134 +1,98 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Issue } from '../../../../core/models/issue';
-import { ModalType } from '../../../../core/enums/modal-type';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { IssueService } from '../../../../core/services/issue.service';
-import { IssueState } from '../../../../core/enums/issue-state';
+import { IssueService } from '@core/services';
+import { ModalType } from '@core/enums';
+import { Issue } from '@core/models';
 
 @Component({
-  selector: 'app-tasks',
-  template: `
-	<div class="scrollable-container">
-		<div class="content">
-
-			<h2>Moje závady</h2>
-
-			<table>
-				<thead>
-					<tr>
-						<th scope="col">Název</th>
-						<th scope="col">Lokace</th>
-						<th scope="col">Vytvořeno</th>
-						<th scope="col">Stav</th>
-						<th scope="col">Technik</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr *ngFor="let issue of allIssues" (click)="openUpdateIssueModal(issue)">
-						<td>{{ issue.title }}</td>
-						<td>{{ issue.street }}</td>
-						<td>{{ issue.createdAt | date }}</td>
-						<td>
-							<div [ngClass]="{
-									'state': true,
-									'state_new': (issue.state == 0),
-									'state_processing': (issue.state == 1),
-									'state_complete': (issue.state == 2),
-									'state_confirmed': (issue.state == 3)
-								}">
-								{{ getIssueState(issue.state) }}
-							</div>
-						</td>
-						<td>{{ issue.master }}</td>
-					</tr>
-				</tbody>
-			</table>
+	selector: 'app-tasks',
+	template: `
+		<div class="scrollable-container">
+			<div class="content">
+				<app-table
+					[issues]="issues"
+					[title]="'dashboard.tasks.title'"
+					[sort]="false"
+					[headings]="headings"
+					(updateIssue)="onIssueUpdate($event)"
+				></app-table>
+			</div>
 		</div>
-	</div>
-
+		<!--
 	<app-modal *ngIf="showUpdateIssueModal"
 		[innerComponentType]="updateMoadlType"
 		[issue]="selectedIssue"
 		(afterClose)="onUpdateModalClose($event)">
-	</app-modal>
-  `,
-  styleUrls: ['./tasks.component.sass']
+  </app-modal>
+  -->
+	`,
+	styleUrls: ['./tasks.component.sass']
 })
-export class TasksComponent implements OnInit, OnDestroy {
+export class TasksComponent implements OnDestroy {
+	headings = [
+		{
+			name: 'dashboard.table-headings.name',
+			property: 'title'
+		},
+		{
+			name: 'dashboard.table-headings.location',
+			property: 'street'
+		},
+		{
+			name: 'dashboard.table-headings.created',
+			property: 'createdAt'
+		},
+		{
+			name: 'dashboard.table-headings.state',
+			property: 'state'
+		},
+		{
+			name: 'dashboard.table-headings.master',
+			property: 'master'
+		}
+	];
 
-	allIssues: Issue[];
-	sortingOptions: string[];
-	selectedOption: string;
-	showUpdateIssueModal: boolean = false;
-	updateMoadlType: ModalType = ModalType.WORKER;
-	selectedIssue: Issue;
-	showArchived: boolean;
-	issuesSubscription: Subscription;
+	issues: Issue[];
+	subscriptions: Subscription[] = [];
 	userName: string = '';
 
-  constructor(
-		private issueService: IssueService
-	) {
-		this.issuesSubscription = this.issueService.getNewIssues().subscribe(
-			(issue: Issue) => { if(issue) { this.allIssues.unshift(issue)}},
-			(err) => console.error(err)
+	constructor(private issueService: IssueService) {
+		// TODO: get user name
+		// this.userName = localStorage.getItem('name');
+		const sub = this.issueService.getAllIssues().subscribe(
+			(issues: Issue[]) => {
+				this.issues = issues.filter(issue => issue.master === this.userName);
+			},
+			err => console.error(err)
 		);
-		this.userName = localStorage.getItem('name');
-	}
-
-  ngOnInit() {
-		this.loadIssues();
+		this.subscriptions = [...this.subscriptions, sub];
 	}
 
 	ngOnDestroy() {
-		this.issuesSubscription.unsubscribe();
+		this.subscriptions.forEach(sub => sub.unsubscribe());
 	}
 
-	openUpdateIssueModal(issue: Issue): void {
-		this.selectedIssue = issue;
-		this.showUpdateIssueModal = true;
-		event.stopPropagation();
-	}
-	
-	onUpdateModalClose(issue: Issue): void {
-		this.showUpdateIssueModal = false;
-		this.selectedIssue = null;
-		if (issue) {
-			this.issueService.updateIssue(issue).subscribe(
-				(data) => {},
-				(err) => console.error(err),
-				() => this.loadIssues()
-			);
-		};
-	}
-	
-	getIssueState(state: IssueState) {
-		return (IssueState[state]);
+	onIssueUpdate(issue): void {
+		console.log(issue);
 	}
 
-	sortIssues(): void {
-		this.allIssues = this.allIssues.sort(function(a, b) {
-			if(a['createdAt'] < b['createdAt']) { return 1; }
-			if(a['createdAt'] > b['createdAt']) { return -1; }
-			return 0;
-		});
-	}
+	// openUpdateIssueModal(issue: Issue): void {
+	// this.selectedIssue = issue;
+	// this.showUpdateIssueModal = true;
+	// event.stopPropagation();
+	// }
 
-	loadIssues(): void {
-		this.issueService.getAllIssues()
-			.subscribe(
-				(data) => {
-					this.allIssues = data.filter((elem) => !elem.archived);
-					this.allIssues = this.allIssues.filter((elem) => elem.master === this.userName)
-				},
-				(err) => console.error(err),
-				() => this.sortIssues()
-			);
-	}
-
-	toggleArchive(): void {
-		this.showArchived = !this.showArchived;
-		this.loadIssues();
-	}
-
+	// onUpdateModalClose(issue: Issue): void {
+	// 	this.showUpdateIssueModal = false;
+	// 	this.selectedIssue = null;
+	// 	if (issue) {
+	// 		this.issueService
+	// 			.updateIssue(issue)
+	// 			.subscribe(
+	// 				data => {},
+	// 				err => console.error(err),
+	// 				() => this.loadIssues()
+	// 			);
+	// 	}
+	// }
 }

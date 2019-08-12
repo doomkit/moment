@@ -1,78 +1,67 @@
-@import '~assets/stylesheets/_variables.sass'
+@import '~assets/stylesheets/abstract/variables'
 
 .sidebar
-	height: 100%
-	width: 220px
-	display: flex
-	flex-direction: column
-	justify-content: space-between
-	background-color: #fff
-	box-shadow: 0px 0px 2px 0px rgba(148, 148, 148, 0.2)
-	margin-left: 0px
-	transition-duration: .3s
-	overflow: hidden
+  height: 100%
+  width: 220px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  background-color: #fff
+  box-shadow: 0px 0px 2px 0px rgba(148, 148, 148, 0.2)
+  margin-left: 0px
+  transition-duration: .3s
+  overflow: hidden
 
 .sidebar-menu
-	width: 220px
-	list-style: none
-	padding: 0
-	margin: 0
+  width: 220px
+  list-style: none
+  padding: 0
+  margin: 0
 
 .sidebar-menu__item
-	padding: 15px 10px
-	cursor: pointer
-	font-size: 16px
-	outline: none
-	user-select: none
+  padding: 15px 10px
+  cursor: pointer
+  font-size: 16px
+  outline: none
+  user-select: none
 
 .sidebar-menu__item_active
-	border-right: 3px solid $yellow
-	background-color: $yellow-transparent
+  border-right: 3px solid $yellow
+  background-color: $yellow-transparent
 
 .sidebar-profile
-	width: 220px	// Due to collapsing sidebar
-	display: flex
-	flex-direction: row
-	justify-content: flex-start
-	box-shadow: 0px -1px 1px 0px rgba(148, 148, 148, 0.15)
-	
+  cursor: pointer
+  width: 220px	// Due to collapsing sidebar
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  outline: none
+
+  &_active
+    background-color: $light-background
+  
 .sidebar-profile__avatar
-	width: 70px
-	height: 70px
-	border-radius: 50%
-	margin: 10px
-	background-size: cover
-	background-repeat: no-repeat
-	background-position: center
-	box-shadow: 0px 0px 5px 1px rgba(148, 148, 148, 0.2);
-
-	&_admin
-		background-image: url('../../../../../assets/img/admin.png')
-
-	&_dispatcher
-		background-image: url('../../../../../assets/img/dispatcher.png')
-
-	&_magistrat
-		background-image: url('../../../../../assets/img/magistrat.png')
-
-	&_worker
-		background-image: url('../../../../../assets/img/worker.png')
+  width: 70px
+  height: 70px
+  border-radius: 50%
+  margin: 10px
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  background-image: url('~assets/img/user.svg')
+  
 
 .sidebar-profile__info
-	height: 100%
-	max-width: 50%
-	display: flex
-	flex-direction: column
-	justify-content: center
-	user-select: none
+  max-width: 50%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  user-select: none
 
-	.primary-text
-		cursor: pointer
-		color: $black
-		&:hover
-			color: $link-blue
+  .primary-text
+    color: $black
 
-	.secondary-text
-		font-size: 12px
-		color: $lightgrey
-		text-transform: lowercase
+  .secondary-text
+    font-size: 12px
+    color: $lightgrey
+    text-transform: lowercase

@@ -1,5 +1,4 @@
 export enum ModalType {
 	CREATE,
-	UPDATE,
-	WORKER
+	UPDATE
 }

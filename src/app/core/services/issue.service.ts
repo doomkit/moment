@@ -1,46 +1,50 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Issue } from '../models/issue';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { environment } from './../../../environments/environment';
+import { Issue } from '@core/models/issue';
+
+import { environment } from '@env/environment';
 
 @Injectable()
 export class IssueService {
-	
-	private subject: Subject<Issue>;
+	private _issuesSubject: BehaviorSubject<Issue[]>;
 
 	constructor(private http: HttpClient) {
-		this.subject = new Subject<Issue>();
-	}
-	
-	getAllIssues(): Observable<Issue[]> {
-		return this.http.get(`${environment.api.base_url}/issues`) as Observable<Issue[]>;
+		this._issuesSubject = new BehaviorSubject([]);
+		// TODO: use websocket to get updates from another users
+		this.loadIssues();
 	}
 
-	createIssue(issue: Issue): Observable<Issue>{
-		let res: Issue;
-		return this.http.post<Issue>(`${environment.api.base_url}/issues`, issue).pipe(
-				tap(
-					el => { res = el },
-					(err) => console.error(err),
-					() => this.subject.next(res)
-				)
+	getAllIssues(): Observable<Issue[]> {
+		return this._issuesSubject;
+	}
+
+	private loadIssues() {
+		this.http
+			.get(`${environment.api.base_url}/issues`)
+			.subscribe(
+				(data: Issue[]) => this._issuesSubject.next(data),
+				err => console.error(err)
 			);
 	}
 
-	updateIssue(issue: Issue): Observable<Issue>{
-		return this.http.put<Issue>(`${environment.api.base_url}/issues/${issue.id}`, issue);
+	createIssue(issue: Issue): Observable<Issue> {
+		return this.http
+			.post<Issue>(`${environment.api.base_url}/issues`, issue)
+			.pipe(tap(null, null, () => this.loadIssues()));
 	}
 
-	getNewIssues(): Observable<Issue> {
-		return this.subject.asObservable();
+	updateIssue(issue: Issue): Observable<Issue> {
+		return this.http
+			.put<Issue>(`${environment.api.base_url}/issues/${issue.id}`, issue)
+			.pipe(tap(null, null, () => this.loadIssues()));
 	}
 
 	getAutomaticGeneratedIssues(): Observable<Issue[]> {
-		return this.http.get(`${environment.api.base_url}/templates`) as Observable<Issue[]>;
+		return this.http.get(`${environment.api.base_url}/templates`) as Observable<
+			Issue[]
+		>;
 	}
-
 }

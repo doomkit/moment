@@ -11,7 +11,9 @@ export const environment = {
 	api: {
 		base_url: ''
 	},
-	defaults: {
-		language: 'en'
+	session: {
+		userId: 'userId',
+		lang: 'lang',
+		darkMode: 'darkMode'
 	}
 };
