@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CookieService } from 'ngx-cookie-service';
+
 import { SharedModule } from '@shared/shared.module';
 
 import {
@@ -31,6 +33,7 @@ export function setupTranslateFactory(service: TranslationService): Function {
 	],
 	exports: [BrowserAnimationsModule, HttpClientModule],
 	providers: [
+		CookieService,
 		TranslationService,
 		{
 			provide: APP_INITIALIZER,

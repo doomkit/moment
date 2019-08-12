@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '@core/services';
+import { User } from '@core/models';
 
 @Component({
 	selector: 'app-login',
 	template: `
 		<div class="login">
-			<form (submit)="authorize()" [formGroup]="loginForm">
+			<form (submit)="authorize($event)" [formGroup]="loginForm">
 				<label for="email">email</label>
 				<input
 					id="email"
@@ -48,27 +50,24 @@ export class LoginComponent {
 		password: new FormControl('', Validators.required)
 	});
 
-	error: boolean;
+	error: boolean = false;
 
-	constructor(private router: Router) {}
+	constructor(private router: Router, private userService: UserService) {}
 
-	authorize(): void {
-		// this.authService
-		// 	.logIn(this.loginForm.value.email, this.loginForm.value.password)
-		// 	.subscribe(
-		// 		response => (this.error = !response),
-		// 		err => {
-		// 			console.error(err);
-		// 		},
-		// 		() => {
-		// 			if (this.authService.isLoggedIn) {
-		// 				if (this.authService.checkPermissions() === UserRole.Technik) {
-		// 					this.router.navigate(['/dashboard/tasks']);
-		// 				} else {
-		this.router.navigate(['/dashboard']);
-		// 				}
-		// 			}
-		// 		}
-		// 	);
+	authorize(event: Event): void {
+		event.preventDefault();
+		let email = this.loginForm.value.email;
+		let password = this.loginForm.value.password;
+		this.userService.login(email, password).then(
+			user => {
+				console.log(user);
+				// TODO: save user in session
+				this.router.navigate(['/dashboard']);
+			},
+			err => {
+				this.error = true;
+				console.error(err);
+			}
+		);
 	}
 }
