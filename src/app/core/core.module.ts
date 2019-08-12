@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 import { SharedModule } from '@shared/shared.module';
+import { environment } from '@env/environment';
 
 import {
 	TranslationService,
@@ -15,13 +16,14 @@ import {
 	MasterService
 } from '@core/services';
 
-import { environment } from '@env/environment';
-
-export function setupTranslateFactory(service: TranslationService): Function {
-	if (localStorage.getItem('lang')) {
-		localStorage.setItem('lang', environment.defaults.language);
+export function setupTranslateFactory(
+	service: TranslationService,
+	cookie: CookieService
+): Function {
+	if (cookie.check(environment.session.lang)) {
+		return () => service.use(cookie.get(environment.session.lang));
 	}
-	return () => service.use(localStorage.getItem('lang'));
+	return () => service.use('en');
 }
 
 @NgModule({
@@ -38,7 +40,7 @@ export function setupTranslateFactory(service: TranslationService): Function {
 		{
 			provide: APP_INITIALIZER,
 			useFactory: setupTranslateFactory,
-			deps: [TranslationService],
+			deps: [TranslationService, CookieService],
 			multi: true
 		},
 		IssueService,

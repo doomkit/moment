@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '@core/models';
+import { User, Settings } from '@core/models';
 import { UserService } from '@core/services';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-profile',
@@ -10,7 +11,10 @@ import { UserService } from '@core/services';
 			<div class="heading">
 				<app-user-info [user]="user"></app-user-info>
 			</div>
-			<app-user-settings></app-user-settings>
+			<app-user-settings
+				[user]="user"
+				(changeSettings)="onUpdateSettings($event)"
+			></app-user-settings>
 			<div class="buttons">
 				<button class="btn btn_small danger-btn" (click)="logout()">
 					{{ 'shared.actions.logout' | translate }}
@@ -20,13 +24,23 @@ import { UserService } from '@core/services';
 	`,
 	styleUrls: ['./profile.component.sass']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnDestroy {
 	user: User;
+	userSub: Subscription;
 
 	constructor(private router: Router, private userService: UserService) {
-		this.userService
+		this.userSub = this.userService
 			.getAuthorizedUser()
 			.subscribe(user => (this.user = user), err => console.error(err));
+	}
+
+	ngOnDestroy(): void {
+		this.userSub.unsubscribe();
+	}
+
+	onUpdateSettings(newSettings: Settings) {
+		this.user.settings = newSettings;
+		this.userService.updateUser(this.user).subscribe();
 	}
 
 	logout() {

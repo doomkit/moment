@@ -1,220 +1,244 @@
 {
-	"issues": [
-		{
-			"id": 0,
-			"author": "John Doe",
-			"title": "Tram station",
-			"description": "Tram station is damaged by storm. The glass is broken.",
-			"coordinates": [14.372319206054925, 50.09938287411106],
-			"street": "Na Sekyrce 551/5, 160 00 Praha, Česko",
-			"master": "Tereza Macek",
-			"state": "1",
-			"createdAt": 1555248813000,
-			"archived": false
-		},
-		{
-			"id": 1,
-			"author": "John Doe",
-			"title": "Paint rusty fence",
-			"description": "Need to paint rusty fence around the park with a silver color.",
-			"coordinates": [14.454716666991203, 50.070744797331145],
-			"street": "Norská 1501/8, 101 00 Praha, Česko",
-			"master": "Matěj Smolak",
-			"state": "3",
-			"createdAt": 1555245920000,
-			"archived": true
-		},
-		{
-			"id": 2,
-			"author": "John Doe",
-			"title": "Red bench",
-			"description": "Clean around.",
-			"coordinates": [14.358586295898846, 50.09850195765037],
-			"street": "Arabská 677/17, 160 00 Praha, Česko",
-			"master": "Dominika Svobodová",
-			"state": "2",
-			"createdAt": 1555330734778,
-			"archived": false
-		},
-		{
-			"id": 3,
-			"author": "John Doe",
-			"title": "Glass shards",
-			"description": "Remove glass shards near the office building.",
-			"coordinates": [14.388112052730321, 50.070744797331145],
-			"street": "Vrchlického 291/12, 150 00 Praha, Česko",
-			"master": "František Dušek",
-			"state": "1",
-			"createdAt": 1555330763681,
-			"archived": false
-		},
-		{
-			"id": 4,
-			"author": "John Doe",
-			"title": "Beer bottles",
-			"description": "Clean surrounding areas.",
-			"coordinates": [14.444416984376403, 50.102906377985505],
-			"street": "Dělnická 202/6, 170 00 Praha, Česko",
-			"master": "Dominika Svobodová",
-			"state": 0,
-			"createdAt": 1555330795289,
-			"archived": false
-		}
-	],
-	"templates": [
-		{
-			"id": 0,
-			"author": "",
-			"title": "[Auto] Svetlo #105",
-			"description": "Svetlo #105 (žiarovka) po zapojení nesveti",
-			"coordinates": [14.372319206054925, 50.09938287411106],
-			"street": "Na Sekyrce 551/5, 160 00 Praha, Česko",
-			"master": "",
-			"state": "0",
-			"createdAt": 1546300800000,
-			"archived": false
-		},
-		{
-			"id": 1,
-			"author": "",
-			"title": "[Auto] Svetlo #110",
-			"description": "Svetlo #110 (žiarovka) po zapojení nesveti",
-			"coordinates": [14.358586295898846, 50.09850195765037],
-			"street": "Arabská 677/17, 160 00 Praha, Česko",
-			"master": "",
-			"state": "0",
-			"createdAt": 1546300800000,
-			"archived": false
-		},
-		{
-			"id": 2,
-			"author": "",
-			"title": "[Auto] Svetlo #110",
-			"description": "Svetlo #94 (žiarovka) po zapojení nesveti.",
-			"coordinates": [14.444416984376403, 50.102906377985505],
-			"street": "Dělnická 202/6, 170 00 Praha, Česko",
-			"master": "",
-			"state": 0,
-			"createdAt": 1546300800000,
-			"archived": false
-		}
-	],
-	"masters": [
-		{
-			"id": 0,
-			"name": "Tereza Macek",
-			"email": "tereza.macek@gmail.com"
-		},
-		{
-			"id": 1,
-			"name": "Filip Sýkora",
-			"email": "filip.sykora@gmail.com"
-		},
-		{
-			"id": 2,
-			"name": "Matěj Smolak",
-			"email": "matej.smolak@gmail.com"
-		},
-		{
-			"id": 3,
-			"name": "František Dušek",
-			"email": "frantisek.dusek@gmail.com"
-		},
-		{
-			"id": 4,
-			"name": "Dominika Svobodová",
-			"email": "dominika.svobodova@gmail.com"
-		},
-		{
-			"id": 5,
-			"name": "John Doe",
-			"email": "john.doe@gmail.com"
-		}
-	],
-	"users": [
-		{
-			"id": 0,
-			"name": "John Doe",
-			"role": 0,
-			"email": "john.doe@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79457248,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 1,
-			"name": "Tereza Macek",
-			"role": 2,
-			"email": "tereza.macek@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79411659,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 2,
-			"name": "Filip Sýkora",
-			"role": 2,
-			"email": "filip.sykora@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79363066,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 3,
-			"name": "Matěj Smolak",
-			"role": 2,
-			"email": "matej.smolak@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79569572,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 4,
-			"name": "František Dušek",
-			"role": 2,
-			"email": "frantisek.dusek@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79617070,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 5,
-			"name": "Dominika Svobodová",
-			"role": 2,
-			"email": "dominika.svobodova@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79343529,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		},
-		{
-			"id": 6,
-			"name": "Taťána Skála",
-			"role": 1,
-			"email": "tatiana.skala@gmail.com",
-			"password": "1qaz2wsx",
-			"phone": 79343449,
-			"settings": {
-				"darkMode": false,
-				"language": "english"
-			}
-		}
-	]
+  "issues": [
+    {
+      "id": 0,
+      "author": "John Doe",
+      "title": "Tram station",
+      "description": "Tram station is damaged by storm. The glass is broken.",
+      "coordinates": [
+        14.372319206054925,
+        50.09938287411106
+      ],
+      "street": "Na Sekyrce 551/5, 160 00 Praha, Česko",
+      "master": "Tereza Macek",
+      "state": "1",
+      "createdAt": 1555248813000,
+      "archived": false
+    },
+    {
+      "id": 1,
+      "author": "John Doe",
+      "title": "Paint rusty fence",
+      "description": "Need to paint rusty fence around the park with a silver color.",
+      "coordinates": [
+        14.454716666991203,
+        50.070744797331145
+      ],
+      "street": "Norská 1501/8, 101 00 Praha, Česko",
+      "master": "Matěj Smolak",
+      "state": "3",
+      "createdAt": 1555245920000,
+      "archived": true
+    },
+    {
+      "id": 2,
+      "author": "John Doe",
+      "title": "Red bench",
+      "description": "Clean around.",
+      "coordinates": [
+        14.358586295898846,
+        50.09850195765037
+      ],
+      "street": "Arabská 677/17, 160 00 Praha, Česko",
+      "master": "Dominika Svobodová",
+      "state": "2",
+      "createdAt": 1555330734778,
+      "archived": false
+    },
+    {
+      "id": 3,
+      "author": "John Doe",
+      "title": "Glass shards",
+      "description": "Remove glass shards near the office building.",
+      "coordinates": [
+        14.388112052730321,
+        50.070744797331145
+      ],
+      "street": "Vrchlického 291/12, 150 00 Praha, Česko",
+      "master": "František Dušek",
+      "state": "1",
+      "createdAt": 1555330763681,
+      "archived": false
+    },
+    {
+      "id": 4,
+      "author": "John Doe",
+      "title": "Beer bottles",
+      "description": "Clean surrounding areas.",
+      "coordinates": [
+        14.444416984376403,
+        50.102906377985505
+      ],
+      "street": "Dělnická 202/6, 170 00 Praha, Česko",
+      "master": "Dominika Svobodová",
+      "state": 0,
+      "createdAt": 1555330795289,
+      "archived": false
+    }
+  ],
+  "templates": [
+    {
+      "id": 0,
+      "author": "",
+      "title": "[Auto] Svetlo #105",
+      "description": "Svetlo #105 (žiarovka) po zapojení nesveti",
+      "coordinates": [
+        14.372319206054925,
+        50.09938287411106
+      ],
+      "street": "Na Sekyrce 551/5, 160 00 Praha, Česko",
+      "master": "",
+      "state": "0",
+      "createdAt": 1546300800000,
+      "archived": false
+    },
+    {
+      "id": 1,
+      "author": "",
+      "title": "[Auto] Svetlo #110",
+      "description": "Svetlo #110 (žiarovka) po zapojení nesveti",
+      "coordinates": [
+        14.358586295898846,
+        50.09850195765037
+      ],
+      "street": "Arabská 677/17, 160 00 Praha, Česko",
+      "master": "",
+      "state": "0",
+      "createdAt": 1546300800000,
+      "archived": false
+    },
+    {
+      "id": 2,
+      "author": "",
+      "title": "[Auto] Svetlo #110",
+      "description": "Svetlo #94 (žiarovka) po zapojení nesveti.",
+      "coordinates": [
+        14.444416984376403,
+        50.102906377985505
+      ],
+      "street": "Dělnická 202/6, 170 00 Praha, Česko",
+      "master": "",
+      "state": 0,
+      "createdAt": 1546300800000,
+      "archived": false
+    }
+  ],
+  "masters": [
+    {
+      "id": 0,
+      "name": "Tereza Macek",
+      "email": "tereza.macek@gmail.com"
+    },
+    {
+      "id": 1,
+      "name": "Filip Sýkora",
+      "email": "filip.sykora@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Matěj Smolak",
+      "email": "matej.smolak@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "František Dušek",
+      "email": "frantisek.dusek@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Dominika Svobodová",
+      "email": "dominika.svobodova@gmail.com"
+    },
+    {
+      "id": 5,
+      "name": "John Doe",
+      "email": "john.doe@gmail.com"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "John Doe",
+      "role": 0,
+      "email": "john.doe@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79457248,
+      "settings": {
+        "darkMode": true,
+        "language": "cz"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Tereza Macek",
+      "role": 2,
+      "email": "tereza.macek@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79411659,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Filip Sýkora",
+      "role": 2,
+      "email": "filip.sykora@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79363066,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Matěj Smolak",
+      "role": 2,
+      "email": "matej.smolak@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79569572,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    },
+    {
+      "id": 4,
+      "name": "František Dušek",
+      "role": 2,
+      "email": "frantisek.dusek@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79617070,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Dominika Svobodová",
+      "role": 2,
+      "email": "dominika.svobodova@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79343529,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Taťána Skála",
+      "role": 1,
+      "email": "tatiana.skala@gmail.com",
+      "password": "1qaz2wsx",
+      "phone": 79343449,
+      "settings": {
+        "darkMode": false,
+        "language": "en"
+      }
+    }
+  ]
 }

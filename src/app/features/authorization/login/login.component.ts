@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '@core/services';
-import { User } from '@core/models';
+import { UserService, TranslationService } from '@core/services';
 
 @Component({
 	selector: 'app-login',
@@ -17,7 +16,7 @@ import { User } from '@core/models';
 					formControlName="email"
 				/>
 
-				<label for="pass">heslo</label>
+				<label for="pass">password</label>
 				<input
 					id="pass"
 					type="password"
@@ -30,15 +29,15 @@ import { User } from '@core/models';
 					class="btn yellow-btn"
 					[disabled]="!loginForm.valid"
 				>
-					Přihlásit se
+					Log in
 				</button>
 				<a routerLink="/authorization/create-account" routerLinkActive="active"
-					>Nemáte účet?</a
+					>Don't have account yet?</a
 				>
 			</form>
 
 			<div *ngIf="error" class="error">
-				Chybně zadané heslo nebo email.
+				Wrong email or password.
 			</div>
 		</div>
 	`,
@@ -60,7 +59,6 @@ export class LoginComponent {
 		let password = this.loginForm.value.password;
 		this.userService.login(email, password).then(
 			user => {
-				console.log(user);
 				// TODO: save user in session
 				this.router.navigate(['/dashboard']);
 			},
